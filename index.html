@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kit Whey Protein Isolado Fusion</title>
+    <title>Suplementos de Performance</title>
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
     <script src="/_sdk/element_sdk.js"></script>
@@ -79,6 +79,12 @@
         animation-delay: 0.6s;
         opacity: 0;
       }
+      .product-page {
+        display: none;
+      }
+      .product-page.active {
+        display: block;
+      }
     </style>
     <style>
       body {
@@ -89,735 +95,3362 @@
   </head>
   <body class="h-full bg-black text-white font-body overflow-auto">
     <div class="w-full min-h-full">
-      <!-- HERO -->
-      <section
-        class="relative w-full min-h-[600px] flex items-center overflow-hidden"
-        style="
-          background: radial-gradient(ellipse at center, #1a0000 0%, #000 70%);
-        "
+      <!-- HEADER NAVIGATION -->
+      <header
+        class="w-full bg-surface border-b border-gray-800 sticky top-0 z-50"
       >
         <div
-          class="absolute inset-0 opacity-10"
-          style="
-            background-image: url(&quot;data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22><rect fill=%22none%22 stroke=%22%23E11D24%22 stroke-width=%220.5%22 width=%2280%22 height=%2280%22/></svg>&quot;);
-            background-size: 80px;
-          "
-        ></div>
-        <div
-          class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10"
+          class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
         >
-          <div class="fade-up">
-            <span
-              class="inline-block bg-brand/20 border border-brand/40 text-brand text-sm font-semibold px-4 py-1 rounded-full mb-6 uppercase tracking-wider"
-              >Kit Completo Performance</span
+          <h1 id="header-brand" class="font-heading font-bold text-2xl">
+            Fusion Store
+          </h1>
+          <nav class="flex gap-4 flex-wrap justify-end">
+            <button
+              onclick="navigateTo('whey')"
+              class="text-sm hover:text-brand transition-colors"
             >
-            <h1
-              id="hero-title"
-              class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              Whey Fusion
+            </button>
+            <button
+              onclick="navigateTo('creatina')"
+              class="text-sm hover:text-brand transition-colors"
             >
-              KIT WHEY PROTEIN <span class="text-brand">ISOLADO FUSION</span>
-            </h1>
-            <p class="text-gray-300 text-lg md:text-xl mb-4 max-w-lg">
-              Pré Treino Muscle Pump + Creatina Pura + Shaker Grátis
-            </p>
-            <p class="text-gray-400 text-base mb-8">
-              Tudo que você precisa para maximizar seus resultados em um único
-              kit com custo-benefício imbatível.
-            </p>
-            <div class="flex flex-wrap gap-4 items-center">
-              <a
-                href="https://s.shopee.com.br/1gFINz67k1"
-                target="_blank"
-                rel="noopener noreferrer"
-                id="cta-btn"
-                class="bg-brand hover:bg-brandDark text-white font-heading font-bold text-lg px-8 py-4 rounded-lg transition-all glow hover:scale-105 inline-block"
-                >COMPRAR AGORA</a
-              >
-              <span class="text-gray-400 text-sm"
-                >Consulte o preço nos marketplaces</span
-              >
-            </div>
-          </div>
-          <div class="flex justify-center fade-up fade-up-delay-1">
-            <img
-              src="https://http2.mlstatic.com/D_NQ_NP_2X_976179-MLB71247198041_082023-F-combo-whey-protein-fusion-1800g-pre-treino-300g-copo.webp"
-              alt="Kit Whey Protein Isolado Fusion completo com pré-treino, creatina e shaker"
-              class="max-w-full h-auto max-h-[500px] object-contain float drop-shadow-2xl"
-              loading="lazy"
-              onerror="
-                console.error('Image failed:', this.src);
-                this.style.background = 'linear-gradient(135deg,#1a1a1a,#333)';
-                this.style.borderRadius = '16px';
-                this.style.minHeight = '300px';
-                this.alt = 'Imagem indisponível';
-              "
-            />
-          </div>
+              Creatina
+            </button>
+            <button
+              onclick="navigateTo('panic')"
+              class="text-sm hover:text-brand transition-colors"
+            >
+              Panic Pre
+            </button>
+            <button
+              onclick="navigateTo('colageno')"
+              class="text-sm hover:text-brand transition-colors"
+            >
+              Colágeno
+            </button>
+            <button
+              onclick="navigateTo('magnesio')"
+              class="text-sm hover:text-brand transition-colors"
+            >
+              Magnésio
+            </button>
+          </nav>
         </div>
-      </section>
-      <!-- BENEFÍCIOS -->
-      <section class="w-full py-20 bg-surface">
-        <div class="max-w-6xl mx-auto px-6">
-          <h2
-            class="font-heading text-4xl md:text-5xl font-bold text-center mb-4"
-          >
-            POR QUE ESSE KIT É <span class="text-brand">DIFERENTE?</span>
-          </h2>
-          <div class="gradient-line w-48 mx-auto mb-16"></div>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div
-              class="bg-card border border-gray-800 rounded-xl p-8 text-center hover:border-brand/50 transition-all fade-up"
-            >
-              <div
-                class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-5"
-              >
-                <i data-lucide="zap" class="text-brand w-8 h-8"></i>
-              </div>
-              <h3 class="font-heading text-xl font-semibold mb-3">
-                Whey Isolado Premium
-              </h3>
-              <p class="text-gray-400">
-                1800g de proteína de alta absorção com aminoácidos essenciais
-                para recuperação muscular acelerada.
-              </p>
-            </div>
-            <div
-              class="bg-card border border-gray-800 rounded-xl p-8 text-center hover:border-brand/50 transition-all fade-up fade-up-delay-1"
-            >
-              <div
-                class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-5"
-              >
-                <i data-lucide="flame" class="text-brand w-8 h-8"></i>
-              </div>
-              <h3 class="font-heading text-xl font-semibold mb-3">
-                Pré-Treino Explosivo
-              </h3>
-              <p class="text-gray-400">
-                Muscle Pump 300g com beta-alanina, cafeína e arginina para
-                treinos intensos com vasodilatação máxima.
-              </p>
-            </div>
-            <div
-              class="bg-card border border-gray-800 rounded-xl p-8 text-center hover:border-brand/50 transition-all fade-up fade-up-delay-2"
-            >
-              <div
-                class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-5"
-              >
-                <i data-lucide="dumbbell" class="text-brand w-8 h-8"></i>
-              </div>
-              <h3 class="font-heading text-xl font-semibold mb-3">
-                Creatina Pura
-              </h3>
-              <p class="text-gray-400">
-                Monohidratada para aumento de força, potência e volumização
-                muscular comprovada cientificamente.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- O QUE VEM NO KIT -->
-      <section class="w-full py-20 bg-black">
-        <div class="max-w-6xl mx-auto px-6">
-          <h2
-            class="font-heading text-4xl md:text-5xl font-bold text-center mb-4"
-          >
-            O QUE VEM <span class="text-brand">NO KIT</span>
-          </h2>
-          <div class="gradient-line w-48 mx-auto mb-16"></div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div
-              class="bg-card rounded-xl p-6 border border-gray-800 hover:border-brand transition-all group"
-            >
-              <div
-                class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors"
-              >
-                <i data-lucide="beaker" class="text-brand w-6 h-6"></i>
-              </div>
-              <h3
-                class="font-heading text-lg font-semibold mb-2 group-hover:text-brand transition-colors"
-              >
-                Whey Protein Isolado Fusion
-              </h3>
-              <p class="text-gray-400 text-sm">
-                1800g — Alta concentração proteica, baixo teor de gordura e
-                carboidratos.
-              </p>
-            </div>
-            <div
-              class="bg-card rounded-xl p-6 border border-gray-800 hover:border-brand transition-all group"
-            >
-              <div
-                class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors"
-              >
-                <i data-lucide="zap" class="text-brand w-6 h-6"></i>
-              </div>
-              <h3
-                class="font-heading text-lg font-semibold mb-2 group-hover:text-brand transition-colors"
-              >
-                Pré-Treino Muscle Pump
-              </h3>
-              <p class="text-gray-400 text-sm">
-                300g — Energia, foco e vasodilatação para treinos de alta
-                intensidade.
-              </p>
-            </div>
-            <div
-              class="bg-card rounded-xl p-6 border border-gray-800 hover:border-brand transition-all group"
-            >
-              <div
-                class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors"
-              >
-                <i data-lucide="dumbbell" class="text-brand w-6 h-6"></i>
-              </div>
-              <h3
-                class="font-heading text-lg font-semibold mb-2 group-hover:text-brand transition-colors"
-              >
-                Creatina Pura
-              </h3>
-              <p class="text-gray-400 text-sm">
-                Monohidratada — Ganho de força e performance com máxima pureza.
-              </p>
-            </div>
-            <div
-              class="bg-card rounded-xl p-6 border border-gray-800 hover:border-brand transition-all group"
-            >
-              <div
-                class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand/20 transition-colors"
-              >
-                <i data-lucide="gift" class="text-brand w-6 h-6"></i>
-              </div>
-              <h3
-                class="font-heading text-lg font-semibold mb-2 group-hover:text-brand transition-colors"
-              >
-                Shaker Grátis
-              </h3>
-              <p class="text-gray-400 text-sm">
-                Copo exclusivo para preparar seus shakes de forma prática no dia
-                a dia.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- COMO USAR -->
-      <section class="w-full py-20 bg-surface">
-        <div class="max-w-5xl mx-auto px-6">
-          <h2
-            class="font-heading text-4xl md:text-5xl font-bold text-center mb-4"
-          >
-            PROTOCOLO DE <span class="text-brand">USO DIÁRIO</span>
-          </h2>
-          <div class="gradient-line w-48 mx-auto mb-16"></div>
-          <div class="space-y-6">
-            <div
-              class="flex items-start gap-6 bg-card rounded-xl p-6 border border-gray-800"
-            >
-              <div
-                class="w-12 h-12 bg-brand rounded-full flex items-center justify-center flex-shrink-0 font-heading font-bold text-xl"
-              >
-                1
-              </div>
-              <div>
-                <h3 class="font-heading text-xl font-semibold mb-1">
-                  Pré-Treino (30min antes)
-                </h3>
-                <p class="text-gray-400">
-                  Misture 1 dose do Muscle Pump com 200ml de água gelada. Sinta
-                  a energia e o foco chegarem antes de pisar na academia.
-                </p>
-              </div>
-            </div>
-            <div
-              class="flex items-start gap-6 bg-card rounded-xl p-6 border border-gray-800"
-            >
-              <div
-                class="w-12 h-12 bg-brand rounded-full flex items-center justify-center flex-shrink-0 font-heading font-bold text-xl"
-              >
-                2
-              </div>
-              <div>
-                <h3 class="font-heading text-xl font-semibold mb-1">
-                  Creatina (diariamente)
-                </h3>
-                <p class="text-gray-400">
-                  3-5g por dia com água ou junto ao shake. Consistência é a
-                  chave para resultados reais de força e volume.
-                </p>
-              </div>
-            </div>
-            <div
-              class="flex items-start gap-6 bg-card rounded-xl p-6 border border-gray-800"
-            >
-              <div
-                class="w-12 h-12 bg-brand rounded-full flex items-center justify-center flex-shrink-0 font-heading font-bold text-xl"
-              >
-                3
-              </div>
-              <div>
-                <h3 class="font-heading text-xl font-semibold mb-1">
-                  Whey Protein (pós-treino)
-                </h3>
-                <p class="text-gray-400">
-                  1-2 doses no shaker com água ou leite. Recuperação muscular
-                  otimizada na janela anabólica.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- DEPOIMENTOS -->
-      <section class="w-full py-20 bg-black">
-        <div class="max-w-6xl mx-auto px-6">
-          <h2
-            class="font-heading text-4xl md:text-5xl font-bold text-center mb-4"
-          >
-            QUEM USA, <span class="text-brand">APROVA</span>
-          </h2>
-          <div class="gradient-line w-48 mx-auto mb-16"></div>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-card rounded-xl p-6 border border-gray-800">
-              <div class="flex gap-1 mb-4 text-brand">★★★★★</div>
-              <p class="text-gray-300 mb-4 italic">
-                "O melhor custo-benefício que já encontrei. Whey dissolve super
-                bem e o pré-treino dá um pump absurdo. Recomendo demais!"
-              </p>
-              <p class="font-semibold text-sm">— Rafael M.</p>
-            </div>
-            <div class="bg-card rounded-xl p-6 border border-gray-800">
-              <div class="flex gap-1 mb-4 text-brand">★★★★★</div>
-              <p class="text-gray-300 mb-4 italic">
-                "Já é meu terceiro kit. A creatina é pura mesmo, sem gosto.
-                Produto de qualidade com entrega rápida."
-              </p>
-              <p class="font-semibold text-sm">— Camila S.</p>
-            </div>
-            <div class="bg-card rounded-xl p-6 border border-gray-800">
-              <div class="flex gap-1 mb-4 text-brand">★★★★★</div>
-              <p class="text-gray-300 mb-4 italic">
-                "Kit completo pelo preço de um suplemento só em outras lojas.
-                Sabor chocolate do whey é sensacional."
-              </p>
-              <p class="font-semibold text-sm">— Lucas T.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- COMPOSIÇÃO E INGREDIENTES -->
-      <section class="w-full py-20 bg-surface">
-        <div class="max-w-6xl mx-auto px-6">
-          <h2
-            class="font-heading text-4xl md:text-5xl font-bold text-center mb-4"
-          >
-            COMPOSIÇÃO <span class="text-brand">E INGREDIENTES</span>
-          </h2>
-          <div class="gradient-line w-48 mx-auto mb-16"></div>
-          <div class="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3
-                class="font-heading text-2xl font-semibold mb-6 flex items-center gap-3"
-              >
-                <i data-lucide="cup" class="text-brand w-6 h-6"></i> Whey
-                Protein Isolado
-              </h3>
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3">
-                  <i
-                    data-lucide="check-circle"
-                    class="text-brand w-5 h-5 flex-shrink-0 mt-0.5"
-                  ></i>
-                  <span
-                    ><strong>90% de proteína pura</strong> — Máxima concentração
-                    com mínima gordura</span
-                  >
-                </li>
-                <li class="flex items-start gap-3">
-                  <i
-                    data-lucide="check-circle"
-                    class="text-brand w-5 h-5 flex-shrink-0 mt-0.5"
-                  ></i>
-                  <span
-                    ><strong>BCAA completo</strong> — Leucina, isoleucina e
-                    valina para recuperação</span
-                  >
-                </li>
-                <li class="flex items-start gap-3">
-                  <i
-                    data-lucide="check-circle"
-                    class="text-brand w-5 h-5 flex-shrink-0 mt-0.5"
-                  ></i>
-                  <span
-                    ><strong>Rápida absorção</strong> — Ativa a síntese proteica
-                    em minutos</span
-                  >
-                </li>
-                <li class="flex items-start gap-3">
-                  <i
-                    data-lucide="check-circle"
-                    class="text-brand w-5 h-5 flex-shrink-0 mt-0.5"
-                  ></i>
-                  <span
-                    ><strong>Sabor intenso</strong> — Chocolate, baunilha e
-                    morango disponíveis</span
-                  >
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3
-                class="font-heading text-2xl font-semibold mb-6 flex items-center gap-3"
-              >
-                <i data-lucide="lightning" class="text-brand w-6 h-6"></i>
-                Pré-Treino Muscle Pump
-              </h3>
-              <ul class="space-y-3">
-                <li class="flex items-start gap-3">
-                  <i
-                    data-lucide="check-circle"
-                    class="text-brand w-5 h-5 flex-shrink-0 mt-0.5"
-                  ></i>
-                  <span
-                    ><strong>Cafeína 200mg</strong> — Foco e energia sustentada
-                    por 4-6 horas</span
-                  >
-                </li>
-                <li class="flex items-start gap-3">
-                  <i
-                    data-lucide="check-circle"
-                    class="text-brand w-5 h-5 flex-shrink-0 mt-0.5"
-                  ></i>
-                  <span
-                    ><strong>Beta-Alanina</strong> — Reduz fadiga e aumenta
-                    resistência muscular</span
-                  >
-                </li>
-                <li class="flex items-start gap-3">
-                  <i
-                    data-lucide="check-circle"
-                    class="text-brand w-5 h-5 flex-shrink-0 mt-0.5"
-                  ></i>
-                  <span
-                    ><strong>L-Arginina</strong> — Vasodilatação para pump
-                    máximo e nutrição muscular</span
-                  >
-                </li>
-                <li class="flex items-start gap-3">
-                  <i
-                    data-lucide="check-circle"
-                    class="text-brand w-5 h-5 flex-shrink-0 mt-0.5"
-                  ></i>
-                  <span
-                    ><strong>Zero açúcar</strong> — Fórmula leve sem crash após
-                    treino</span
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="mt-12 bg-card rounded-xl p-8 border border-gray-800">
-            <h3
-              class="font-heading text-2xl font-semibold mb-6 flex items-center gap-3"
-            >
-              <i data-lucide="muscle" class="text-brand w-6 h-6"></i> Creatina
-              Monohidratada
-            </h3>
-            <div class="grid md:grid-cols-3 gap-6">
-              <div>
-                <p class="text-gray-400 text-sm mb-2">Pureza</p>
-                <p class="font-heading font-bold text-brand text-xl">99.9%</p>
-              </div>
-              <div>
-                <p class="text-gray-400 text-sm mb-2">Forma</p>
-                <p class="font-heading font-bold text-brand text-xl">
-                  Micronizada
-                </p>
-              </div>
-              <div>
-                <p class="text-gray-400 text-sm mb-2">Efeito</p>
-                <p class="font-heading font-bold text-brand text-xl">
-                  Científico
-                </p>
-              </div>
-            </div>
-            <p class="text-gray-300 mt-6">
-              Aumenta força, potência e volume muscular. Resultados comprovados
-              em mais de 1000 estudos científicos. Uso contínuo recomendado por
-              profissionais.
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- COMPARAÇÃO COM CONCORRÊNCIA -->
-      <section class="w-full py-20 bg-black">
-        <div class="max-w-6xl mx-auto px-6">
-          <h2
-            class="font-heading text-4xl md:text-5xl font-bold text-center mb-4"
-          >
-            POR QUE ESCOLHER <span class="text-brand">NOSSO KIT</span>
-          </h2>
-          <div class="gradient-line w-48 mx-auto mb-16"></div>
+      </header>
+      <!-- PÁGINA: WHEY FUSION -->
+      <div id="whey" class="product-page active">
+        <section
+          class="relative w-full min-h-[600px] flex items-center overflow-hidden"
+          style="
+            background: radial-gradient(
+              ellipse at center,
+              #1a0000 0%,
+              #000 70%
+            );
+          "
+        >
           <div
-            class="bg-card border border-gray-800 rounded-xl overflow-hidden"
+            class="absolute inset-0 opacity-10"
+            style="
+              background-image: url(&quot;data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22><rect fill=%22none%22 stroke=%22%23E11D24%22 stroke-width=%220.5%22 width=%2280%22 height=%2280%22/></svg>&quot;);
+              background-size: 80px;
+            "
+          ></div>
+          <div
+            class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full"
           >
-            <div class="grid md:grid-cols-4 gap-0 min-h-[400px]">
-              <div
-                class="p-6 border-r border-gray-800 flex flex-col justify-center"
+            <div class="fade-up">
+              <span
+                class="inline-block bg-brand/20 border border-brand/40 text-brand text-sm font-semibold px-4 py-1 rounded-full mb-6 uppercase tracking-wider"
+                >Kit Completo Performance</span
               >
-                <p class="text-gray-400 text-sm uppercase tracking-wider mb-4">
-                  Critério
+              <h1
+                class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              >
+                KIT WHEY PROTEIN <span class="text-brand">ISOLADO FUSION</span>
+              </h1>
+              <p class="text-gray-300 text-lg md:text-xl mb-4 max-w-lg">
+                Pré Treino Muscle Pump + Creatina Pura + Shaker Grátis
+              </p>
+              <p class="text-gray-400 text-base mb-8">
+                Tudo que você precisa para maximizar seus resultados em um único
+                kit com custo-benefício imbatível.
+              </p>
+              <div class="flex flex-wrap gap-4 items-center">
+                <a
+                  href="https://s.shopee.com.br/1gFINz67k1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-brand hover:bg-brandDark text-white font-heading font-bold text-lg px-8 py-4 rounded-lg transition-all glow hover:scale-105 inline-block"
+                  >COMPRAR AGORA</a
+                >
+                <span class="text-gray-400 text-sm"
+                  >Consulte o preço nos marketplaces</span
+                >
+              </div>
+            </div>
+            <div class="flex justify-center fade-up fade-up-delay-1">
+              <img
+                src="https://http2.mlstatic.com/D_NQ_NP_2X_976179-MLB71247198041_082023-F-combo-whey-protein-fusion-1800g-pre-treino-300g-copo.webp"
+                alt="Kit Whey Protein Isolado Fusion"
+                class="max-w-full h-auto max-h-[500px] object-contain float drop-shadow-2xl"
+                loading="lazy"
+                onerror="
+                  this.style.background =
+                    'linear-gradient(135deg,#1a1a1a,#333)';
+                  this.style.borderRadius = '16px';
+                  this.style.minHeight = '300px';
+                "
+              />
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 1: O QUE É E BENEFÍCIOS -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-brand">
+              O KIT WHEY FUSION: SOLUÇÃO COMPLETA
+            </h2>
+            <p class="text-gray-300 text-lg mb-6">
+              O Kit Whey Protein Isolado Fusion foi desenvolvido para oferecer
+              tudo que você precisa em uma única compra. Este combo premium
+              reúne três pilares essenciais do treino moderno: proteína de alta
+              qualidade, energia pré-treino e creatina pura.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6 mt-12">
+              <div class="bg-surface rounded-lg p-6 border border-brand/20">
+                <h3 class="font-heading text-xl font-bold text-brand mb-3">
+                  Whey Protein Isolado
+                </h3>
+                <p class="text-gray-400">
+                  Absorção rápida, 25g de proteína por dose, zero lactose, ideal
+                  para pós-treino.
                 </p>
-                <ul class="space-y-4">
-                  <li class="font-semibold">Proteína por dose</li>
-                  <li class="text-gray-400 text-sm">Pré-treino potência</li>
-                  <li class="text-gray-400 text-sm">Creatina pureza</li>
-                  <li class="text-gray-400 text-sm">Shaker incluído</li>
-                  <li class="text-gray-400 text-sm">Preço por kit</li>
+              </div>
+              <div class="bg-surface rounded-lg p-6 border border-brand/20">
+                <h3 class="font-heading text-xl font-bold text-brand mb-3">
+                  Pré Treino Muscle Pump
+                </h3>
+                <p class="text-gray-400">
+                  Cafeína, beta-alanina, citrulina para pump máximo e energia
+                  explosiva.
+                </p>
+              </div>
+              <div class="bg-surface rounded-lg p-6 border border-brand/20">
+                <h3 class="font-heading text-xl font-bold text-brand mb-3">
+                  Creatina Pura
+                </h3>
+                <p class="text-gray-400">
+                  Força, resistência e volume muscular. Ingrediente número 1 em
+                  ciência.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 2: COMO USAR -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              MODO DE USO RECOMENDADO
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-card rounded-lg p-6 border-l-4 border-brand">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="sunrise"
+                    style="width: 24px; height: 24px; color: #e11d24"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">MANHÃ</h3>
+                </div>
+                <p class="text-gray-300">
+                  Creatina 5g + água. Pode ser misturada no suco ou água
+                  simples. Tome todos os dias, mesmo fora dos dias de treino.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-brand">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="zap"
+                    style="width: 24px; height: 24px; color: #e11d24"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    ANTES DO TREINO (30-45 min)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Pré Treino Muscle Pump conforme instruções da embalagem.
+                  Misture em 200ml de água. Aguarde agir para máxima energia.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-brand">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="dumbbell"
+                    style="width: 24px; height: 24px; color: #e11d24"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    PÓS-TREINO (até 2h após)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Whey Protein 25-30g em 200ml de água ou leite desnatado.
+                  Acelera recuperação e síntese proteica muscular.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 3: CIÊNCIA E EFICÁCIA -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-brand">
+              COMPROVAÇÃO CIENTÍFICA
+            </h2>
+            <p class="text-gray-300 text-lg mb-8">
+              Cada componente do kit tem décadas de pesquisa científica
+              comprovando sua eficácia:
+            </p>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <span class="text-2xl font-bold text-brand min-w-fit">1.</span>
+                <div>
+                  <h4 class="font-heading font-bold mb-2">
+                    Whey Protein Isolado
+                  </h4>
+                  <p class="text-gray-400">
+                    Estudos mostram aumento de massa muscular em 12-16 semanas
+                    quando combinado com treino de resistência. Absorção em 1-2
+                    horas.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="text-2xl font-bold text-brand min-w-fit">2.</span>
+                <div>
+                  <h4 class="font-heading font-bold mb-2">
+                    Creatina Monohidratada
+                  </h4>
+                  <p class="text-gray-400">
+                    Aumenta força em até 20% e hipertrofia em 8-12 semanas.
+                    Segura, eficaz e recomendada por órgãos internacionais de
+                    nutrição esportiva.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="text-2xl font-bold text-brand min-w-fit">3.</span>
+                <div>
+                  <h4 class="font-heading font-bold mb-2">
+                    Pré-Treino Muscle Pump
+                  </h4>
+                  <p class="text-gray-400">
+                    Cafeína aumenta foco em 30-40%, beta-alanina reduz fadiga
+                    muscular, citrulina melhora pump e fluxo sanguíneo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 4: PARA QUEM É INDICADO -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              QUEM DEVE USAR ESTE KIT?
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-card rounded-lg p-6 border border-brand/30">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="check-circle"
+                    style="width: 24px; height: 24px; color: #10b981"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold text-brand">
+                    INDICADO PARA:
+                  </h3>
+                </div>
+                <ul class="space-y-2 text-gray-300">
+                  <li>• Musculação e treinos de força</li>
+                  <li>• Atletas em fase de ganho de massa</li>
+                  <li>• Treinos de alta intensidade (HIIT)</li>
+                  <li>• Recuperação pós-treino acelerada</li>
+                  <li>• Aumento de performance geral</li>
+                  <li>• Deficiência proteica na dieta</li>
                 </ul>
               </div>
-              <div
-                class="p-6 border-r border-gray-800 flex flex-col justify-center bg-brand/5"
-              >
-                <p
-                  class="text-brand font-heading font-bold uppercase tracking-wider mb-4"
+              <div class="bg-card rounded-lg p-6 border border-gray-700">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="alert-circle"
+                    style="width: 24px; height: 24px; color: #f59e0b"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">ATENÇÃO:</h3>
+                </div>
+                <ul class="space-y-2 text-gray-400">
+                  <li>• Menores de 18 anos: consulte médico</li>
+                  <li>• Gestantes/lactantes: não recomendado</li>
+                  <li>• Alérgicos a lactose: usar versão sem lactose</li>
+                  <li>• Hipertensão: verificar cafeína do pré</li>
+                  <li>• Sempre beba muita água (3-4L/dia)</li>
+                  <li>• Combine com alimentação balanceada</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 5: DICAS DE OTIMIZAÇÃO -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-brand">
+              DICAS PARA MAXIMIZAR RESULTADOS
+            </h2>
+            <div class="space-y-4">
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="droplet"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #3b82f6;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Hidratação é fundamental</h4>
+                  <p class="text-gray-400">
+                    Beba pelo menos 3-4L de água por dia. Creatina precisa de
+                    água para funcionar adequadamente.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="apple"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #3b82f6;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Combine com proteína alimentar</h4>
+                  <p class="text-gray-400">
+                    Não substitua alimentos reais. O kit completa sua
+                    alimentação, não a substitui.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="clock"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #3b82f6;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Consistência é chave</h4>
+                  <p class="text-gray-400">
+                    Use todos os dias. Resultados aparecem a partir de 4-6
+                    semanas com treino + dieta.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="moon"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #3b82f6;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Respeite o sono</h4>
+                  <p class="text-gray-400">
+                    Durma 7-9 horas. Recuperação muscular acontece durante o
+                    sono.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="repeat-2"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #3b82f6;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Ciclo de uso</h4>
+                  <p class="text-gray-400">
+                    Use por 12 semanas, depois faça pausa de 2 semanas. Isso
+                    mantém o corpo responsivo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 6: FAQ E SEGURANÇA -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              PERGUNTAS FREQUENTES
+            </h2>
+            <div class="space-y-4">
+              <details class="bg-card rounded-lg p-6 group cursor-pointer">
+                <summary
+                  class="font-heading font-bold text-lg flex justify-between items-center"
                 >
-                  Nosso Kit
+                  Quanto tempo leva para ver resultados?
+                  <span class="group-open:rotate-180 transition-transform"
+                    >▼</span
+                  >
+                </summary>
+                <p class="text-gray-400 mt-3">
+                  Com treino consistente e dieta adequada: força em 2-3 semanas,
+                  músculo visível em 4-6 semanas, resultados marcantes em 12
+                  semanas.
                 </p>
-                <ul class="space-y-4">
-                  <li class="font-semibold text-brand">30g isolado</li>
-                  <li class="text-brand font-semibold">5 ingredientes</li>
-                  <li class="text-brand font-semibold">99.9% puro</li>
-                  <li class="text-brand font-semibold">✓ Sim</li>
-                  <li class="font-heading font-bold text-lg text-gray-400">
-                    Melhor custo-benefício
+              </details>
+              <details class="bg-card rounded-lg p-6 group cursor-pointer">
+                <summary
+                  class="font-heading font-bold text-lg flex justify-between items-center"
+                >
+                  Posso misturar os produtos?
+                  <span class="group-open:rotate-180 transition-transform"
+                    >▼</span
+                  >
+                </summary>
+                <p class="text-gray-400 mt-3">
+                  Sim! Muitos atletas fazem um "shake pré-treino" com: whey
+                  protein + pré-treino + creatina em água. Consulte instruções
+                  de dosagem de cada um.
+                </p>
+              </details>
+              <details class="bg-card rounded-lg p-6 group cursor-pointer">
+                <summary
+                  class="font-heading font-bold text-lg flex justify-between items-center"
+                >
+                  Preciso fazer ciclo com esses produtos?
+                  <span class="group-open:rotate-180 transition-transform"
+                    >▼</span
+                  >
+                </summary>
+                <p class="text-gray-400 mt-3">
+                  Creatina e whey podem ser usados continuamente. Para
+                  pré-treino, fazer pausas periódicas ajuda o corpo a manter
+                  sensibilidade.
+                </p>
+              </details>
+              <details class="bg-card rounded-lg p-6 group cursor-pointer">
+                <summary
+                  class="font-heading font-bold text-lg flex justify-between items-center"
+                >
+                  Causa efeitos colaterais?
+                  <span class="group-open:rgba-180 transition-transform"
+                    >▼</span
+                  >
+                </summary>
+                <p class="text-gray-400 mt-3">
+                  Creatina e whey são extremamente seguros. Pré-treino pode
+                  causar leve sensação de formigamento (carnosina). Aumente
+                  hidratação se sentir desconforto.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+        <section class="w-full py-20 bg-surface border-t border-gray-800">
+          <div class="max-w-6xl mx-auto px-6">
+            <h2
+              class="font-heading text-4xl md:text-5xl font-bold text-center mb-16"
+            >
+              QUEM COMPROU TAMBÉM LEVOU
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-brand/50 transition-all cursor-pointer"
+                onclick="navigateTo('creatina')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-820l7-mnzolhuki4n4c0@resize_w450_nl.webp"
+                  alt="Creatina Soldiers"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Creatina Soldiers Nutrition
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Monohidratada pura para força e volume muscular
+                </p>
+                <span class="text-brand font-bold">Ver Produto →</span>
+              </div>
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-brand/50 transition-all cursor-pointer"
+                onclick="navigateTo('panic')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-81z1k-mdyr436375s323@resize_w450_nl.webp"
+                  alt="Pre-Treino Panic"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Pré-Treino Panic Adaptogen
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Energia explosiva com ingredientes adaptógenos
+                </p>
+                <span class="text-brand font-bold">Ver Produto →</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- PÁGINA: CREATINA SOLDIERS -->
+      <div id="creatina" class="product-page">
+        <section
+          class="relative w-full min-h-[600px] flex items-center overflow-hidden"
+          style="
+            background: radial-gradient(
+              ellipse at center,
+              #001a1a 0%,
+              #000 70%
+            );
+          "
+        >
+          <div
+            class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full"
+          >
+            <div class="flex justify-center fade-up">
+              <img
+                src="https://down-br.img.susercontent.com/file/br-11134207-820l7-mnzolhuki4n4c0@resize_w450_nl.webp"
+                alt="Creatina Soldiers"
+                class="max-w-full h-auto max-h-[500px] object-contain float drop-shadow-2xl"
+                loading="lazy"
+                onerror="
+                  this.style.background =
+                    'linear-gradient(135deg,#1a1a1a,#333)';
+                  this.style.borderRadius = '16px';
+                  this.style.minHeight = '300px';
+                "
+              />
+            </div>
+            <div class="fade-up fade-up-delay-1">
+              <span
+                class="inline-block bg-blue-500/20 border border-blue-500/40 text-blue-400 text-sm font-semibold px-4 py-1 rounded-full mb-6 uppercase tracking-wider"
+                >Força &amp; Potência</span
+              >
+              <h1
+                class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              >
+                CREATINA <span class="text-blue-400">SOLDIERS NUTRITION</span>
+              </h1>
+              <p class="text-gray-300 text-lg md:text-xl mb-4 max-w-lg">
+                Monohidratada 99.9% pura com máxima absorção
+              </p>
+              <p class="text-gray-400 text-base mb-8">
+                Aumento de força, potência e volumização muscular comprovado
+                cientificamente. Use diariamente para resultados reais.
+              </p>
+              <div class="flex flex-wrap gap-4 items-center">
+                <a
+                  href="https://s.shopee.com.br/8piYuoc5Az"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-blue-500 hover:bg-blue-600 text-white font-heading font-bold text-lg px-8 py-4 rounded-lg transition-all glow hover:scale-105 inline-block"
+                  >COMPRAR AGORA</a
+                >
+                <span class="text-gray-400 text-sm"
+                  >Consulte o preço nos marketplaces</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 1: O QUE É CREATINA -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-blue-400">
+              CREATINA: O SUPLEMENTO MAIS ESTUDADO
+            </h2>
+            <p class="text-gray-300 text-lg mb-6">
+              Creatina monohidratada é um aminoácido não-essencial produzido
+              naturalmente no corpo a partir de arginina, glicina e metionina.
+              Sua função é gerar energia (ATP) nas células musculares durante
+              esforços intensos.
+            </p>
+            <div
+              class="bg-surface rounded-lg p-6 border border-blue-500/30 mt-8"
+            >
+              <h3 class="font-heading text-2xl font-bold text-blue-400 mb-4">
+                Por que suplementar?
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Seu corpo produz ~1-2g por dia naturalmente. Uma alimentação
+                rica em carne vermelha fornece ~1-2g adicionais. Ao suplementar
+                5g diários, você eleva estoques musculares em 20-30%, gerando
+                mais energia para treinos intensos.
+              </p>
+              <p class="text-gray-400">
+                Resultado: força aumentada, repetições extras, recuperação
+                melhor e ganho muscular acelerado.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 2: COMO FUNCIONA NO CORPO -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              MECANISMO DE AÇÃO: COMO FUNCIONA
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-card rounded-lg p-6 border-l-4 border-blue-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="arrow-down"
+                    style="width: 24px; height: 24px; color: #60a5fa"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    Ingestão e absorção
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Você ingere creatina monohidratada. Ela é absorvida no
+                  intestino e chega à corrente sanguínea.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-blue-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="target"
+                    style="width: 24px; height: 24px; color: #60a5fa"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    Acúmulo nos músculos
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  A creatina penetra as células musculares com ajuda de um
+                  carreador específico (CTI). Lá, é convertida em fosfocreatina.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-blue-400">
+                <h3 class="font-heading text-xl font-bold mb-3">
+                  <i
+                    data-lucide="zap"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      color: #60a5fa;
+                      display: inline;
+                      margin-right: 8px;
+                    "
+                  ></i
+                  >Regeneração de ATP
+                </h3>
+                <p class="text-gray-300">
+                  Durante contrações musculares intensas (primeira série de
+                  agachamento), você usa ATP. Fosfocreatina regenera ATP
+                  rapidamente.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-blue-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="trending-up"
+                    style="width: 24px; height: 24px; color: #60a5fa"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    Mais séries = mais força
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Com mais ATP disponível, você consegue fazer mais repetições
+                  antes da fadura, gerando mais estímulo muscular.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-blue-400">
+                <h3 class="font-heading text-xl font-bold mb-3">
+                  <i
+                    data-lucide="muscle"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      color: #60a5fa;
+                      display: inline;
+                      margin-right: 8px;
+                    "
+                  ></i
+                  >Hipertrofia
+                </h3>
+                <p class="text-gray-300">
+                  Mais volume = mais dano muscular = mais síntese proteica =
+                  músculos maiores e mais fortes após semanas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 3: PROTOCOLO DE DOSAGEM -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-blue-400">
+              PROTOCOLO DE DOSAGEM RECOMENDADO
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-surface rounded-lg p-6 border border-blue-500/30">
+                <h3 class="font-heading text-lg font-bold text-blue-400 mb-4">
+                  PROTOCOLO PADRÃO (Recomendado)
+                </h3>
+                <ul class="space-y-2 text-gray-300">
+                  <li><strong>Dose:</strong> 5g por dia</li>
+                  <li>
+                    <strong>Frequência:</strong> Uma vez ao dia (qualquer
+                    horário)
+                  </li>
+                  <li>
+                    <strong>Melhor horário:</strong> Pós-treino com carboidrato
+                  </li>
+                  <li><strong>Tempo para ver efeito:</strong> 3-4 semanas</li>
+                  <li><strong>Ciclo:</strong> Contínuo (seguro usar sempre)</li>
+                </ul>
+              </div>
+              <div class="bg-surface rounded-lg p-6 border border-blue-500/30">
+                <h3 class="font-heading text-lg font-bold text-blue-400 mb-4">
+                  PROTOCOLO DE CARGA (Opcional)
+                </h3>
+                <ul class="space-y-2 text-gray-300">
+                  <li><strong>Semana 1:</strong> 20g/dia (dividido em 4x5g)</li>
+                  <li><strong>Após:</strong> 5g/dia de manutenção</li>
+                  <li><strong>Vantagem:</strong> Resultados em 5-7 dias</li>
+                  <li>
+                    <strong>Desvantagem:</strong> Pode inchar temporariamente
+                  </li>
+                  <li>
+                    <strong>Nota:</strong> Sem protocolo padrão funciona também!
                   </li>
                 </ul>
               </div>
-              <div
-                class="p-6 border-r border-gray-800 flex flex-col justify-center"
-              >
-                <p
-                  class="text-gray-400 font-heading font-bold uppercase tracking-wider mb-4"
-                >
-                  Marca A
+            </div>
+            <div
+              class="bg-surface rounded-lg p-6 border-l-4 border-blue-400 mt-6"
+            >
+              <div class="flex gap-3">
+                <i
+                  data-lucide="lightbulb"
+                  style="width: 24px; height: 24px; color: #60a5fa"
+                ></i>
+                <p class="text-gray-300">
+                  <strong>Dica:</strong> Misture com suco com açúcar ou whey
+                  protein. A insulina e carboidratos melhoram absorção da
+                  creatina.
                 </p>
-                <ul class="space-y-4">
-                  <li class="text-gray-400">24g isolado</li>
-                  <li class="text-gray-400">2 ingredientes</li>
-                  <li class="text-gray-400">95% puro</li>
-                  <li class="text-gray-400">✗ Não</li>
-                  <li class="text-gray-400">R$ 220,00</li>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 4: RESULTADOS E ESTUDOS -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              RESULTADOS CIENTÍFICOS COMPROVADOS
+            </h2>
+            <p class="text-gray-300 text-lg mb-8">
+              Mais de 1000 estudos clínicos confirmaram os efeitos da creatina
+              monohidratada:
+            </p>
+            <div class="space-y-4">
+              <div class="flex gap-4 bg-card rounded-lg p-6">
+                <span class="text-4xl font-bold text-blue-400 min-w-fit"
+                  >+20%</span
+                >
+                <div>
+                  <h4 class="font-heading font-bold mb-1">Aumento de Força</h4>
+                  <p class="text-gray-400">
+                    Estudos mostram aumento de 15-20% em força máxima em 8-12
+                    semanas.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 bg-card rounded-lg p-6">
+                <span class="text-4xl font-bold text-blue-400 min-w-fit"
+                  >+15%</span
+                >
+                <div>
+                  <h4 class="font-heading font-bold mb-1">
+                    Crescimento Muscular
+                  </h4>
+                  <p class="text-gray-400">
+                    Combinada com treino, promove 15% mais ganho de massa magra
+                    que treino só.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 bg-card rounded-lg p-6">
+                <span class="text-4xl font-bold text-blue-400 min-w-fit"
+                  >+25%</span
+                >
+                <div>
+                  <h4 class="font-heading font-bold mb-1">Volume de Treino</h4>
+                  <p class="text-gray-400">
+                    Você consegue fazer 25% mais repetições antes da fadiga
+                    muscular.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 bg-card rounded-lg p-6">
+                <span class="text-4xl font-bold text-blue-400 min-w-fit"
+                  >SEGURA</span
+                >
+                <div>
+                  <h4 class="font-heading font-bold mb-1">
+                    Aprovada Internacionalmente
+                  </h4>
+                  <p class="text-gray-400">
+                    Recomendada por ISSN, NCAA, IOC (Comitê Olímpico
+                    Internacional).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 5: MITOS E VERDADES -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-blue-400">
+              MITOS E VERDADES SOBRE CREATINA
+            </h2>
+            <div class="space-y-4">
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <span class="text-2xl">❌</span>
+                  <h4 class="font-heading font-bold">
+                    MITO: Causa danos aos rins
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  VERDADE: Diversos estudos confirmam que creatina é segura para
+                  rins saudáveis, inclusive em longo prazo (5+ anos). Pessoas
+                  com problemas renais devem consultar médico.
+                </p>
+              </div>
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <span class="text-2xl">❌</span>
+                  <h4 class="font-heading font-bold">
+                    MITO: Causa inchaço/retenção hídrica
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  VERDADE: Creatina retém água DENTRO das células musculares
+                  (aumento de volume muscular), não sob a pele. Você fica mais
+                  "cheio", não inchado de forma ruim.
+                </p>
+              </div>
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <span class="text-2xl">❌</span>
+                  <h4 class="font-heading font-bold">
+                    MITO: Só funciona para homens
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  VERDADE: Mulheres ganham os mesmos benefícios. Não causa
+                  virilização ou testosterona elevada. Completamente segura para
+                  ambos.
+                </p>
+              </div>
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <span class="text-2xl">✅</span>
+                  <h4 class="font-heading font-bold">
+                    VERDADE: Precisa de bastante água
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  Beba 3-4L diariamente. Creatina "puxa" água para os músculos,
+                  então hidratação é importante.
+                </p>
+              </div>
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <span class="text-2xl">✅</span>
+                  <h4 class="font-heading font-bold">
+                    VERDADE: Melhora performance mental
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  Alguns estudos mostram melhora leve em cognição, memória e
+                  foco. Seu cérebro também usa ATP!
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 6: MELHOR CREATINA + DICAS -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              COMO ESCOLHER A MELHOR CREATINA
+            </h2>
+            <div class="bg-card rounded-lg p-6 border border-blue-500/30 mb-8">
+              <h3 class="font-heading text-lg font-bold text-blue-400 mb-4">
+                A Soldiers Nutrition é superior porque:
+              </h3>
+              <ul class="space-y-3 text-gray-300">
+                <li>
+                  ✓ <strong>99.9% pura</strong> - Sem enchimentos ou
+                  aglutinantes
+                </li>
+                <li>
+                  ✓ <strong>Monohidratada micronizada</strong> - Absorção
+                  potencializada
+                </li>
+                <li>
+                  ✓ <strong>Testada em laboratório</strong> - Garantia de
+                  qualidade
+                </li>
+                <li>
+                  ✓ <strong>Sem sabor/inodora</strong> - Mistura em qualquer
+                  bebida
+                </li>
+                <li>
+                  ✓ <strong>Custo-benefício imbatível</strong> - Rende muito
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-4">
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="cup"
+                  style="width: 24px; height: 24px; color: #3b82f6"
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Melhor forma de consumir</h4>
+                  <p class="text-gray-400">
+                    Misture 5g em 200ml de suco natural com açúcar ou água com
+                    mel. A glicose melhora absorção.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="repeat-2"
+                  style="width: 24px; height: 24px; color: #3b82f6"
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Tempo de validade após aberto</h4>
+                  <p class="text-gray-400">
+                    Guarde em local seco. Creatina não estraga, mas perde
+                    estabilidade com muita umidade. 1-2 anos é seguro.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="zap"
+                  style="width: 24px; height: 24px; color: #3b82f6"
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Não misture com ácidos</h4>
+                  <p class="text-gray-400">
+                    Evite sucos ácidos (limão, laranja pura). Use sucos
+                    açucarados naturais ou água com carboidrato.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="muscle"
+                  style="width: 24px; height: 24px; color: #3b82f6"
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">
+                    Sem contraindicações com outros suplementos
+                  </h4>
+                  <p class="text-gray-400">
+                    Combina perfeitamente com whey protein, BCAA, pré-treino,
+                    magnésio e tudo mais.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- BANNER: COMPRE JUNTO MAGNÉSIO -->
+        <section
+          class="w-full py-16 bg-gradient-to-r from-blue-600/20 to-green-600/20 border-y border-blue-500/30"
+        >
+          <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+              <div class="md:flex-1">
+                <h3 class="font-heading text-3xl md:text-4xl font-bold mb-3">
+                  O COMBO PERFEITO PARA QUEM TREINA PESADO
+                </h3>
+                <p class="text-gray-300 text-lg mb-4">
+                  Creatina + Magnésio = força explosiva + recuperação profunda
+                </p>
+                <ul class="space-y-2 text-gray-400 text-sm mb-6">
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Creatina aumenta força e volume muscular
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Magnésio evita câimbras noturnos
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Magnésio melhora qualidade do sono em 40%
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Juntos: recuperação 2x mais rápida
+                  </li>
+                </ul>
+                <button
+                  onclick="navigateTo('magnesio')"
+                  class="bg-green-500 hover:bg-green-600 text-white font-heading font-bold px-6 py-3 rounded-lg transition-all inline-block"
+                >
+                  ADICIONAR MAGNÉSIO AO PEDIDO
+                </button>
+              </div>
+              <div class="md:flex-1 flex justify-center">
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m7wd3qoriokx00.webp"
+                  alt="Tri Magnésio"
+                  class="max-w-full h-auto max-h-[250px] object-contain"
+                  loading="lazy"
+                  onerror="
+                    this.style.background =
+                      'linear-gradient(135deg,#1a1a1a,#333)';
+                    this.style.borderRadius = '16px';
+                    this.style.minHeight = '200px';
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="w-full py-20 bg-surface border-t border-gray-800">
+          <div class="max-w-6xl mx-auto px-6">
+            <h2
+              class="font-heading text-4xl md:text-5xl font-bold text-center mb-16"
+            >
+              RECOMENDAÇÕES DE COMBO
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-blue-500/50 transition-all cursor-pointer"
+                onclick="navigateTo('magnesio')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m7wd3qoriokx00.webp"
+                  alt="Tri Magnésio"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Tri Magnésio + Inositol Relax
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Melhora recuperação e qualidade do sono
+                </p>
+                <span class="text-blue-400 font-bold">Ver Produto →</span>
+              </div>
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-blue-500/50 transition-all cursor-pointer"
+                onclick="navigateTo('panic')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-81z1k-mdyr436375s323@resize_w450_nl.webp"
+                  alt="Pre-Treino Panic"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Pré-Treino Panic Adaptogen
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Potencialize seus treinos com energia pura
+                </p>
+                <span class="text-blue-400 font-bold">Ver Produto →</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- PÁGINA: PRÉ-TREINO PANIC -->
+      <div id="panic" class="product-page">
+        <section
+          class="relative w-full min-h-[600px] flex items-center overflow-hidden"
+          style="
+            background: radial-gradient(
+              ellipse at center,
+              #1a0a00 0%,
+              #000 70%
+            );
+          "
+        >
+          <div
+            class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full"
+          >
+            <div class="fade-up">
+              <span
+                class="inline-block bg-orange-500/20 border border-orange-500/40 text-orange-400 text-sm font-semibold px-4 py-1 rounded-full mb-6 uppercase tracking-wider"
+                >Treino Explosivo</span
+              >
+              <h1
+                class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              >
+                PRÉ-TREINO <span class="text-orange-400">PANIC ADAPTOGEN</span>
+              </h1>
+              <p class="text-gray-300 text-lg md:text-xl mb-4 max-w-lg">
+                Energia adaptógena com foco total e pump máximo
+              </p>
+              <p class="text-gray-400 text-base mb-8">
+                Combinação exclusiva de cafeína, beta-alanina e ingredientes
+                adaptógenos para treinos de altíssima intensidade sem crash.
+              </p>
+              <div class="flex flex-wrap gap-4 items-center">
+                <a
+                  href="https://s.shopee.com.br/40dJ9eEx80"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-orange-500 hover:bg-orange-600 text-white font-heading font-bold text-lg px-8 py-4 rounded-lg transition-all glow hover:scale-105 inline-block"
+                  >COMPRAR AGORA</a
+                >
+                <span class="text-gray-400 text-sm"
+                  >Consulte o preço nos marketplaces</span
+                >
+              </div>
+            </div>
+            <div class="flex justify-center fade-up fade-up-delay-1">
+              <img
+                src="https://down-br.img.susercontent.com/file/br-11134207-81z1k-mdyr436375s323@resize_w450_nl.webp"
+                alt="Pre-Treino Panic"
+                class="max-w-full h-auto max-h-[500px] object-contain float drop-shadow-2xl"
+                loading="lazy"
+                onerror="
+                  this.style.background =
+                    'linear-gradient(135deg,#1a1a1a,#333)';
+                  this.style.borderRadius = '16px';
+                  this.style.minHeight = '300px';
+                "
+              />
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 1: O QUE É PRÉ-TREINO -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-orange-400">
+              PRÉ-TREINO PANIC: ADAPTÓGENO COM ENERGIA
+            </h2>
+            <p class="text-gray-300 text-lg mb-6">
+              Pré-treino é uma combinação estratégica de nutrientes que
+              potencializa seu desempenho. O Panic Adaptogen é diferente dos
+              concorrentes porque combina estimulantes tradicionais com
+              ingredientes adaptógenos que reduzem cortisol e melhoram foco sem
+              crash.
+            </p>
+            <div
+              class="bg-surface rounded-lg p-6 border border-orange-500/30 mt-8"
+            >
+              <h3 class="font-heading text-2xl font-bold text-orange-400 mb-4">
+                Por que usar antes do treino?
+              </h3>
+              <p class="text-gray-300 mb-4">
+                30-45 minutos antes do treino, seus ingredientes agem
+                simultaneamente:
+              </p>
+              <ul class="space-y-2 text-gray-300 mt-4">
+                <li>✓ Cafeína: Aumenta foco, força e resistência à fadiga</li>
+                <li>
+                  ✓ Beta-alanina: Reduz ácido láctico, permitindo mais
+                  repetições
+                </li>
+                <li>✓ Citrulina: Melhora pump e fluxo sanguíneo</li>
+                <li>✓ Adaptógenos: Mantêm foco mental sem ansiedade</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 2: INGREDIENTES PRINCIPAIS -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              INGREDIENTES ATIVOS DO PANIC
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="coffee"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      color: #f59e0b;
+                      flex-shrink: 0;
+                    "
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold mb-3">
+                    CAFEÍNA (200-300mg)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Bloqueador de adenosina que reduz percepção de fadiga. Aumenta
+                  foco em 30-40%, energia em 25-35% e força máxima em 10-15%.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Tempo de ação: 15-20 minutos | Pico: 45-60 minutos |
+                  Meia-vida: 5-6 horas
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="zap"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      color: #f59e0b;
+                      flex-shrink: 0;
+                    "
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold mb-3">
+                    BETA-ALANINA (3-5g)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Aumenta carnosina muscular, que tamponiza ácido láctico.
+                  Resultado: mais repetições, treinos mais intensos, resistência
+                  potencializada.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Nota: Pode causar leve formigamento na pele (parestesia) - é
+                  normal e inofensivo!
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="droplet"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      color: #f59e0b;
+                      flex-shrink: 0;
+                    "
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold mb-3">
+                    CITRULINA (6-8g)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Aumenta óxido nítrico (NO), melhorando fluxo sanguíneo.
+                  Resultado: pump espetacular, mais nutrientes chegando aos
+                  músculos, recuperação melhor.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Citrulina Malato: absorção superior à L-citrulina simples
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="brain"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      color: #f59e0b;
+                      flex-shrink: 0;
+                    "
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold mb-3">
+                    ADAPTÓGENOS (Ashwagandha, Rhodiola)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Reduzem cortisol e mantêm foco mental sem ansiedade. Diferem
+                  da cafeína pura: você fica energizado mas calmo, sem tremor.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Usados há séculos em medicina tradicional, agora validados por
+                  ciência moderna
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 3: PROTOCOLO DE USO -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-orange-400">
+              MODO DE USO OTIMIZADO
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="clock"
+                    style="width: 24px; height: 24px; color: #f59e0b"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">QUANDO TOMAR</h3>
+                </div>
+                <p class="text-gray-300">
+                  <strong>30-45 minutos antes do treino</strong> com 200-300ml
+                  de água ou bebida de sua preferência.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Se tomar mais cedo: efeito pico no meio do treino | Se tomar
+                  muito cedo: perde efetividade
+                </p>
+              </div>
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="beaker"
+                    style="width: 24px; height: 24px; color: #f59e0b"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">DOSAGEM</h3>
+                </div>
+                <p class="text-gray-300">
+                  <strong>Iniciantes:</strong> Meia dose (1 scoop/medida) para
+                  testar tolerância
+                </p>
+                <p class="text-gray-300 mt-2">
+                  <strong>Padrão:</strong> 1 dose completa conforme instruções
+                  da embalagem
+                </p>
+                <p class="text-gray-300 mt-2">
+                  <strong>Avançados:</strong> 1-1.5 doses em treinos muito
+                  intensos (máximo 2x/semana)
+                </p>
+              </div>
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="alert-triangle"
+                    style="width: 24px; height: 24px; color: #ef4444"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">
+                    NÃO TOMAR À NOITE
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Cafeína pode prejudicar sono mesmo 8+ horas depois em pessoas
+                  sensíveis. Use apenas em treinos matutinos/vespertinos.
+                </p>
+              </div>
+              <div class="bg-surface rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="repeat-2"
+                    style="width: 24px; height: 24px; color: #f59e0b"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">FREQUÊNCIA</h3>
+                </div>
+                <p class="text-gray-300">
+                  4-5 dias por semana de treino é ideal. Descanse 2-3 dias para
+                  manter sensibilidade à cafeína.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 4: EFEITOS E SENSAÇÕES -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              O QUE ESPERAR: TIMELINE DE EFEITOS
+            </h2>
+            <div class="bg-card rounded-lg p-8 border border-orange-500/30">
+              <div class="space-y-6">
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-orange-400 min-w-fit"
+                    >5-10min</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">
+                      Primeiros sinais
+                    </h4>
+                    <p class="text-gray-300">
+                      Pode sentir leve formigamento (beta-alanina), boca seca.
+                      Seu corpo está absorvendo.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-orange-400 min-w-fit"
+                    >15-20min</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">Energia ativa</h4>
+                    <p class="text-gray-300">
+                      Sente ânimo, foco aumentado, disposição. Café começou a
+                      agir. Está pronto para treinar.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-orange-400 min-w-fit"
+                    >30-60min</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">PICO TOTAL</h4>
+                    <p class="text-gray-300">
+                      Foco máximo, pump espetacular, força explosiva. É o melhor
+                      momento para treinar pesado.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-orange-400 min-w-fit"
+                    >2-3h</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">Treino ótimo</h4>
+                    <p class="text-gray-300">
+                      Efeito ainda forte. Você consegue treinar com alta
+                      intensidade todo tempo.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-orange-400 min-w-fit"
+                    >4-6h</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">Redução gradual</h4>
+                    <p class="text-gray-300">
+                      Efeito diminui mas energia ainda presente. Cafeína ainda
+                      circula no corpo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mt-6 bg-surface rounded-lg p-4 border-l-4 border-orange-400"
+            >
+              <p class="text-gray-300">
+                <strong
+                  ><i
+                    data-lucide="check"
+                    style="
+                      width: 16px;
+                      height: 16px;
+                      color: #10b981;
+                      display: inline;
+                      margin-right: 8px;
+                    "
+                  ></i
+                  >Bom sinal:</strong
+                >
+                Você sente energia, pump, disposição para treinar pesado
+              </p>
+              <p class="text-gray-300 mt-2">
+                <strong
+                  ><i
+                    data-lucide="x"
+                    style="
+                      width: 16px;
+                      height: 16px;
+                      color: #ef4444;
+                      display: inline;
+                      margin-right: 8px;
+                    "
+                  ></i
+                  >Algo errado:</strong
+                >
+                Se ficar ansioso demais ou tiver palpitação, reduz dosagem ou
+                consulta médico
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 5: COMBOS INTELIGENTES -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-orange-400">
+              COMO COMBINAR COM OUTROS SUPLEMENTOS
+            </h2>
+            <div class="space-y-4">
+              <div class="bg-surface rounded-lg p-6">
+                <h3 class="font-heading text-lg font-bold text-orange-400 mb-3">
+                  ✅ COMBOS PERFEITOS
+                </h3>
+                <ul class="space-y-2 text-gray-300">
+                  <li>
+                    <i
+                      data-lucide="zap"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #f59e0b;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    ><strong>Panic + Creatina:</strong> Pré-treino com força
+                    explosiva. Creatina melhora ATP, Panic aumenta foco e
+                    intensidade.
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="zap"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #f59e0b;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    ><strong>Panic + BCAA:</strong> Proteção muscular máxima
+                    durante treino intenso.
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="zap"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #f59e0b;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    ><strong>Panic + Whey Protein (pós):</strong> Treino intenso
+                    seguido de recuperação rápida.
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="zap"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #f59e0b;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    ><strong>Panic + Magnésio (noite):</strong> Energia no
+                    treino, recuperação à noite.
+                  </li>
                 </ul>
               </div>
-              <div class="p-6 flex flex-col justify-center">
-                <p
-                  class="text-gray-400 font-heading font-bold uppercase tracking-wider mb-4"
-                >
-                  Marca B
-                </p>
-                <ul class="space-y-4">
-                  <li class="text-gray-400">22g concentrado</li>
-                  <li class="text-gray-400">3 ingredientes</li>
-                  <li class="text-gray-400">90% puro</li>
-                  <li class="text-gray-400">✗ Não</li>
-                  <li class="text-gray-400">R$ 280,00</li>
+              <div class="bg-surface rounded-lg p-6">
+                <h3 class="font-heading text-lg font-bold mb-3">
+                  ⚠️ CUIDADO COM
+                </h3>
+                <ul class="space-y-2 text-gray-400">
+                  <li>
+                    <i
+                      data-lucide="x"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ef4444;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Não misture com outro pré-treino (risco de overdose de
+                    cafeína)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="x"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ef4444;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Não misture com energético/bebida com cafeína (café,
+                    refrigerante)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="x"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ef4444;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Se sensível a cafeína, não use Panic + café na mesma manhã
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="x"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ef4444;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Não use à noite antes de dormir (prejudica sono)
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <!-- PERGUNTAS FREQUENTES -->
-      <section class="w-full py-20 bg-surface">
-        <div class="max-w-4xl mx-auto px-6">
-          <h2
-            class="font-heading text-4xl md:text-5xl font-bold text-center mb-4"
-          >
-            DÚVIDAS <span class="text-brand">FREQUENTES</span>
-          </h2>
-          <div class="gradient-line w-48 mx-auto mb-16"></div>
-          <div class="space-y-4">
-            <details
-              class="bg-card border border-gray-800 rounded-xl p-6 group cursor-pointer"
-            >
-              <summary
-                class="flex items-center justify-between font-heading font-semibold text-lg"
-              >
-                <span>Quanto tempo demora para ver resultados?</span>
-                <i
-                  data-lucide="chevron-down"
-                  class="w-5 h-5 text-brand group-open:rotate-180 transition-transform"
-                ></i>
-              </summary>
-              <p class="text-gray-400 mt-4">
-                Com uso consistente, você verá os primeiros resultados entre 2-4
-                semanas. O pré-treino funciona na primeira dose. Combine com
-                treino regular e alimentação adequada para máximos resultados.
-              </p>
-            </details>
-            <details
-              class="bg-card border border-gray-800 rounded-xl p-6 group cursor-pointer"
-            >
-              <summary
-                class="flex items-center justify-between font-heading font-semibold text-lg"
-              >
-                <span>Posso usar o kit todos os dias?</span>
-                <i
-                  data-lucide="chevron-down"
-                  class="w-5 h-5 text-brand group-open:rotate-180 transition-transform"
-                ></i>
-              </summary>
-              <p class="text-gray-400 mt-4">
-                Sim! O whey e a creatina são seguros para uso diário. O
-                pré-treino é recomendado apenas em dias de treino para não gerar
-                tolerância. Beba muita água ao usar creatina.
-              </p>
-            </details>
-            <details
-              class="bg-card border border-gray-800 rounded-xl p-6 group cursor-pointer"
-            >
-              <summary
-                class="flex items-center justify-between font-heading font-semibold text-lg"
-              >
-                <span>É necessário fazer ciclo com a creatina?</span>
-                <i
-                  data-lucide="chevron-down"
-                  class="w-5 h-5 text-brand group-open:rotate-180 transition-transform"
-                ></i>
-              </summary>
-              <p class="text-gray-400 mt-4">
-                Não. A creatina monohidratada pode ser usada continuamente sem
-                necessidade de ciclos. Mantenha consistência para melhores
-                resultados. Estudos mostram que é segura mesmo em longo prazo.
-              </p>
-            </details>
-            <details
-              class="bg-card border border-gray-800 rounded-xl p-6 group cursor-pointer"
-            >
-              <summary
-                class="flex items-center justify-between font-heading font-semibold text-lg"
-              >
-                <span>O whey causa inchaço ou gases?</span>
-                <i
-                  data-lucide="chevron-down"
-                  class="w-5 h-5 text-brand group-open:rotate-180 transition-transform"
-                ></i>
-              </summary>
-              <p class="text-gray-400 mt-4">
-                O whey isolado possui lactose mínima, reduzindo desconfortos
-                digestivos. Se tem sensibilidade extrema, comece com meia dose e
-                aumente gradualmente. Misture bem e beba bastante água.
-              </p>
-            </details>
-            <details
-              class="bg-card border border-gray-800 rounded-xl p-6 group cursor-pointer"
-            >
-              <summary
-                class="flex items-center justify-between font-heading font-semibold text-lg"
-              >
-                <span>Qual é a durabilidade do kit?</span>
-                <i
-                  data-lucide="chevron-down"
-                  class="w-5 h-5 text-brand group-open:rotate-180 transition-transform"
-                ></i>
-              </summary>
-              <p class="text-gray-400 mt-4">
-                O whey (1800g) dura ~2 meses com 1-2 doses diárias. O pré-treino
-                (300g) dura ~1,5-2 meses em treinos 4x/semana. A creatina dura
-                muito mais. Verifique o prazo de validade ao receber.
-              </p>
-            </details>
-            <details
-              class="bg-card border border-gray-800 rounded-xl p-6 group cursor-pointer"
-            >
-              <summary
-                class="flex items-center justify-between font-heading font-semibold text-lg"
-              >
-                <span>Como é o frete? Entrega em todo Brasil?</span>
-                <i
-                  data-lucide="chevron-down"
-                  class="w-5 h-5 text-brand group-open:rotate-180 transition-transform"
-                ></i>
-              </summary>
-              <p class="text-gray-400 mt-4">
-                Sim! Entregamos em todo Brasil via Shopee e Mercado Livre. Frete
-                calculado no checkout. Regiões distantes podem levar 7-14 dias
-                úteis. Acompanhe seu pedido pela plataforma.
-              </p>
-            </details>
+        </section>
+        <!-- SEÇÃO 6: TIPOS DE TREINO -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              PRÉ-TREINO IDEAL PARA CADA OBJETIVO
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-card rounded-lg p-6 border border-orange-500/30">
+                <div class="flex gap-3 mb-4">
+                  <i
+                    data-lucide="dumbbell"
+                    style="width: 24px; height: 24px; color: #f59e0b"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold text-orange-400">
+                    MUSCULAÇÃO (Ganho)
+                  </h3>
+                </div>
+                <p class="text-gray-300 text-sm mb-4">
+                  Panic é IDEAL para hipertrofia:
+                </p>
+                <ul class="space-y-2 text-gray-300 text-sm">
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Pump potencializado (citrulina)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Mais repetições (beta-alanina)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Foco extremo (cafeína)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Sem crash (adaptógenos)
+                  </li>
+                </ul>
+                <div class="bg-card rounded-lg p-6 border border-orange-500/30">
+                  <div class="flex gap-3 mb-4">
+                    <i
+                      data-lucide="zap"
+                      style="width: 24px; height: 24px; color: #f59e0b"
+                    ></i>
+                    <h3 class="font-heading text-lg font-bold text-orange-400">
+                      HIIT/Cardio
+                    </h3>
+                  </div>
+                  <p class="text-gray-300 text-sm mb-4">
+                    Perfeito para treinos de alta intensidade:
+                  </p>
+                  <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Resistência aumentada
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Menos percepção de fadiga
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Foco mental total
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Treinos 20-30% mais intensos
+                    </li>
+                  </ul>
+                </div>
+                <div class="bg-card rounded-lg p-6 border border-orange-500/30">
+                  <div class="flex gap-3 mb-4">
+                    <i
+                      data-lucide="activity"
+                      style="width: 24px; height: 24px; color: #f59e0b"
+                    ></i>
+                    <h3 class="font-heading text-lg font-bold text-orange-400">
+                      Corrida/Aeróbio
+                    </h3>
+                  </div>
+                  <p class="text-gray-300 text-sm mb-4">Use com moderação:</p>
+                  <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Energia para longas distâncias
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Foco mental mantido
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="alert-circle"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #f59e0b;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Não é ideal para ultramaratona
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="alert-circle"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #f59e0b;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Pode reter água (citrulina)
+                    </li>
+                  </ul>
+                </div>
+                <div class="bg-card rounded-lg p-6 border border-orange-500/30">
+                  <div class="flex gap-3 mb-4">
+                    <i
+                      data-lucide="target"
+                      style="width: 24px; height: 24px; color: #f59e0b"
+                    ></i>
+                    <h3 class="font-heading text-lg font-bold text-orange-400">
+                      Esportes Intermitentes
+                    </h3>
+                  </div>
+                  <p class="text-gray-300 text-sm mb-4">Excelente para:</p>
+                  <ul class="space-y-2 text-gray-300 text-sm">
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Boxe, artes marciais
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Futebol, basquete
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Tênis e esportes de intensidade variável
+                    </li>
+                    <li>
+                      <i
+                        data-lucide="check"
+                        style="
+                          width: 16px;
+                          height: 16px;
+                          color: #10b981;
+                          display: inline;
+                          margin-right: 8px;
+                        "
+                      ></i
+                      >Foco e explosão máxima
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-      <!-- CTA FINAL -->
-      <section
-        class="w-full py-20 relative overflow-hidden"
-        style="background: linear-gradient(180deg, #1a0000 0%, #000 100%)"
-      >
-        <div
-          class="absolute inset-0 opacity-20"
+        </section>
+        <section class="w-full py-20 bg-surface border-t border-gray-800">
+          <div class="max-w-6xl mx-auto px-6">
+            <h2
+              class="font-heading text-4xl md:text-5xl font-bold text-center mb-16"
+            >
+              POTENCIALIZE SEU STACK
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-orange-500/50 transition-all cursor-pointer"
+                onclick="navigateTo('creatina')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-820l7-mnzolhuki4n4c0@resize_w450_nl.webp"
+                  alt="Creatina Soldiers"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Creatina Soldiers Nutrition
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Força explosiva que complementa seu treino
+                </p>
+                <span class="text-orange-400 font-bold">Ver Produto →</span>
+              </div>
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-orange-500/50 transition-all cursor-pointer"
+                onclick="navigateTo('magnesio')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m7wd3qoriokx00.webp"
+                  alt="Tri Magnésio"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Tri Magnésio + Inositol Relax
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Recuperação premium para treinos intensos
+                </p>
+                <span class="text-orange-400 font-bold">Ver Produto →</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- PÁGINA: COLÁGENO -->
+      <div id="colageno" class="product-page">
+        <section
+          class="relative w-full min-h-[600px] flex items-center overflow-hidden"
           style="
             background: radial-gradient(
-              circle at 50% 50%,
-              #e11d24 0%,
-              transparent 50%
+              ellipse at center,
+              #1a000a 0%,
+              #000 70%
             );
           "
-        ></div>
-        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">
-            GARANTA SEU KIT <span class="text-brand">AGORA</span>
-          </h2>
-          <p class="text-gray-300 text-lg mb-8">
-            Estoque limitado. Aproveite as melhores condições com shaker grátis
-            e frete para todo o Brasil.
-          </p>
+        >
           <div
-            class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+            class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full"
           >
-            <a
-              href="https://s.shopee.com.br/1gFINz67k1"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="bg-brand hover:bg-brandDark text-white font-heading font-bold text-lg px-10 py-4 rounded-lg transition-all glow hover:scale-105 inline-flex items-center gap-3"
-              ><i data-lucide="shopping-cart" class="w-5 h-5"></i> COMPRAR NA
-              SHOPEE</a
-            >
-            <a
-              href="https://meli.la/2AmVM56"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="bg-yellow-500 hover:bg-yellow-600 text-black font-heading font-bold text-lg px-10 py-4 rounded-lg transition-all hover:scale-105 inline-flex items-center gap-3"
-              ><i data-lucide="shopping-bag" class="w-5 h-5"></i> COMPRAR NO
-              MERCADO LIVRE</a
-            >
+            <div class="flex justify-center fade-up">
+              <img
+                src="https://down-br.img.susercontent.com/file/br-11134207-820l9-mnn6mcqcoo3lc6@resize_w450_nl.webp"
+                alt="Colágeno Verisol"
+                class="max-w-full h-auto max-h-[500px] object-contain float drop-shadow-2xl"
+                loading="lazy"
+                onerror="
+                  this.style.background =
+                    'linear-gradient(135deg,#1a1a1a,#333)';
+                  this.style.borderRadius = '16px';
+                  this.style.minHeight = '300px';
+                "
+              />
+            </div>
+            <div class="fade-up fade-up-delay-1">
+              <span
+                class="inline-block bg-pink-500/20 border border-pink-500/40 text-pink-400 text-sm font-semibold px-4 py-1 rounded-full mb-6 uppercase tracking-wider"
+                >Beleza &amp; Saúde</span
+              >
+              <h1
+                class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              >
+                COLÁGENO <span class="text-pink-400">VERISOL PREMIUM</span>
+              </h1>
+              <p class="text-gray-300 text-lg md:text-xl mb-4 max-w-lg">
+                Ácido Hialurônico + Biotina + CoQ-10 + Silício Orgânico
+              </p>
+              <p class="text-gray-400 text-base mb-8">
+                Regeneração celular completa: pele mais firme, unhas fortes,
+                cabelos brilhantes e articulações protegidas.
+              </p>
+              <div class="flex flex-wrap gap-4 items-center">
+                <a
+                  href="https://s.shopee.com.br/1BJ7obAaZv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-pink-500 hover:bg-pink-600 text-white font-heading font-bold text-lg px-8 py-4 rounded-lg transition-all glow hover:scale-105 inline-block"
+                  >COMPRAR AGORA</a
+                >
+                <span class="text-gray-400 text-sm"
+                  >Consulte o preço nos marketplaces</span
+                >
+              </div>
+            </div>
           </div>
+        </section>
+        <!-- SEÇÃO 1: O QUE É COLÁGENO -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-pink-400">
+              COLÁGENO VERISOL: BELEZA E SAÚDE DE DENTRO
+            </h2>
+            <p class="text-gray-300 text-lg mb-6">
+              Colágeno é a proteína mais abundante do corpo humano (30% de toda
+              proteína). Forma a estrutura de pele, cabelo, unhas, tendões,
+              ligamentos e cartilagem. Após os 25 anos, perdemos 1-1.5% de
+              colágeno por ano. O Colágeno Verisol com Ácido Hialurônico,
+              Biotina, Silício e CoQ-10 regenera essa proteína de forma
+              sinérgica.
+            </p>
+            <div
+              class="bg-surface rounded-lg p-6 border border-pink-500/30 mt-8"
+            >
+              <h3 class="font-heading text-2xl font-bold text-pink-400 mb-4">
+                Por que suplementar colágeno?
+              </h3>
+              <p class="text-gray-300 mb-4">
+                Sua alimentação fornece pouco colágeno biodisponível.
+                Suplementos com peptídeos hidrolisados atravessam a barreira
+                intestinal e se acumulam em pele, cabelo e articulações.
+              </p>
+              <p class="text-gray-400">
+                Resultado: Pele mais firme, cabelos brilhosos, unhas fortes,
+                articulações protegidas e envelhecimento desacelerado.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 2: INGREDIENTES SINÉRGICOS -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              FÓRMULA COMPLETA: COMO FUNCIONA JUNTOS
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="test-tubes"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    COLÁGENO VERISOL (Peptídeos Hidrolisados)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Colágeno de peixe de peso molecular baixo (2000-3000 Daltons).
+                  Absorção 1,5-3 vezes superior ao colágeno comum. Estudos
+                  mostram acúmulo em pele após 28 dias.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="waves"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    ÁCIDO HIALURÔNICO
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Retentor de umidade: 1g de ácido hialurônico retém até 6L de
+                  água. Resultado: Pele hidratada, preenchida, com menos rugas
+                  visíveis. Efeito "lifting" natural.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="sun"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    BIOTINA (Vitamina B7)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Essencial para queratina. Resultado direto: Cabelos mais
+                  fortes, menos queda, crescimento acelerado (20-30% mais).
+                  Unhas menos quebradiças.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="hexagon"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    SILÍCIO ORGÂNICO
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Cofator essencial para síntese de colágeno. Melhora
+                  flexibilidade de ligamentos e tendões. Reduz inflamação
+                  articular e celulite.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="battery-charging"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-xl font-bold">
+                    CoQ-10 (Coenzima Q10)
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Antioxidante potente. Protege pele contra radicais livres e
+                  luz UV. Reduz rugas, melhora elasticidade. Níveis naturais
+                  caem com idade.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 3: RESULTADOS COMPROVADOS -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-pink-400">
+              RESULTADOS CIENTÍFICOS EM NÚMEROS
+            </h2>
+            <p class="text-gray-300 text-lg mb-8">
+              Estudos clínicos comprovam os efeitos do colágeno hidrolisado:
+            </p>
+            <div class="space-y-4">
+              <div class="flex gap-4 bg-surface rounded-lg p-6">
+                <span class="text-3xl font-bold text-pink-400 min-w-fit"
+                  >65%</span
+                >
+                <div>
+                  <h4 class="font-heading font-bold mb-1">Redução de Rugas</h4>
+                  <p class="text-gray-400">
+                    Em 12 semanas, rugas visíveis reduzem em até 65%
+                    (especialmente olhos e testa).
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 bg-surface rounded-lg p-6">
+                <span class="text-3xl font-bold text-pink-400 min-w-fit"
+                  >72%</span
+                >
+                <div>
+                  <h4 class="font-heading font-bold mb-1">
+                    Elasticidade Aumentada
+                  </h4>
+                  <p class="text-gray-400">
+                    Pele fica visivamente mais firme e "lifitada" depois de 8-12
+                    semanas.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 bg-surface rounded-lg p-6">
+                <span class="text-3xl font-bold text-pink-400 min-w-fit"
+                  >50%</span
+                >
+                <div>
+                  <h4 class="font-heading font-bold mb-1">
+                    Menos Queda de Cabelo
+                  </h4>
+                  <p class="text-gray-400">
+                    Redução de queda em até 50% em 8-12 semanas. Cabelos mais
+                    fortes na raiz.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-4 bg-surface rounded-lg p-6">
+                <span class="text-3xl font-bold text-pink-400 min-w-fit"
+                  >+30%</span
+                >
+                <div>
+                  <h4 class="font-heading font-bold mb-1">Força de Unhas</h4>
+                  <p class="text-gray-400">
+                    Unhas crescem 30% mais fortes. Menos quebradiças, brilho
+                    natural aumentado.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 4: COMO USAR -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              PROTOCOLO DE USO RECOMENDADO
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="clock"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">QUANDO TOMAR</h3>
+                </div>
+                <p class="text-gray-300">
+                  <strong>Uma vez ao dia</strong>, de manhã em jejum ou com
+                  breakfast. Absorção máxima sem competição com outras
+                  proteínas.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="beaker"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">DOSAGEM</h3>
+                </div>
+                <p class="text-gray-300">
+                  <strong>10-15g por dia</strong> (1-2 scoops). Conforme
+                  instruções da embalagem. Pode ser misturado em:
+                </p>
+                <ul class="space-y-2 text-gray-300 mt-2">
+                  <li>• Suco natural (laranja, maçã)</li>
+                  <li>• Café/chá (colágeno é inodoro e sem sabor)</li>
+                  <li>• Iogurte</li>
+                  <li>• Smoothie</li>
+                </ul>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="timer"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">
+                    TEMPO PARA RESULTADOS
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  <strong>4-8 semanas:</strong> Primeira melhora em hidratação
+                  de pele
+                </p>
+                <p class="text-gray-300 mt-2">
+                  <strong>8-12 semanas:</strong> Resultados visíveis em
+                  elasticidade e rugas
+                </p>
+                <p class="text-gray-300 mt-2">
+                  <strong>16-24 semanas:</strong> Máximo efeito em pele, cabelo
+                  e unhas
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-pink-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="repeat-2"
+                    style="width: 24px; height: 24px; color: #ec4899"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">CICLO CONTÍNUO</h3>
+                </div>
+                <p class="text-gray-300">
+                  Use continuamente. Não precisa fazer pausas. Colágeno se
+                  acumula nos tecidos, então resultados melhoram com tempo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 5: PARA QUEM É INDICADO -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-pink-400">
+              INDICAÇÕES: PARA QUEM FUNCIONA MELHOR
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-surface rounded-lg p-6 border border-pink-500/30">
+                <div class="flex gap-3 mb-4">
+                  <i
+                    data-lucide="check-circle"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      color: #ec4899;
+                      flex-shrink: 0;
+                    "
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold text-pink-400">
+                    INDICADO PARA:
+                  </h3>
+                </div>
+                <ul class="space-y-3 text-gray-300 text-sm">
+                  <li>
+                    <i
+                      data-lucide="user"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ec4899;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Mulheres acima de 25 anos
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="sun"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ec4899;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Prevenção de envelhecimento
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="sparkles"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ec4899;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Melhora de rugas e linhas de expressão
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="hair-pin"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ec4899;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Queda ou fragilidade de cabelo
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="hand"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ec4899;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Unhas fracas ou quebradiças
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="activity"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ec4899;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Articulações com desgaste (corredores)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="shield-alert"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ec4899;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Pessoa em recuperação pós-UV
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-surface rounded-lg p-6 border border-gray-700">
+                <div class="flex gap-3 mb-4">
+                  <i
+                    data-lucide="info"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      color: #3b82f6;
+                      flex-shrink: 0;
+                    "
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold">
+                    INFORMAÇÕES IMPORTANTES:
+                  </h3>
+                </div>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Melhor absorção em jejum (sem leite)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Combina com Vitamina C (melhora síntese)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Seguro para gestantes (consulte médico)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Sem contraindicações com outros suplementos
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Resultados individuais (depende de genética)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="check"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Alérgicos a peixe: consulte rótulo
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 6: MITOS E CIÊNCIA -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              MITOS VS CIÊNCIA SOBRE COLÁGENO
+            </h2>
+            <div class="space-y-4">
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="x-circle"
+                    style="width: 24px; height: 24px; color: #ef4444"
+                  ></i>
+                  <h4 class="font-heading font-bold">
+                    MITO: Colágeno em cápsula não funciona
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  VERDADE: Peptídeos hidrolisados (colágeno de baixo peso
+                  molecular) são absorvidos 60-90% no intestino e se acumulam em
+                  pele após 2-4 semanas. Múltiplos estudos confirmam isso.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="x-circle"
+                    style="width: 24px; height: 24px; color: #ef4444"
+                  ></i>
+                  <h4 class="font-heading font-bold">
+                    MITO: Só funciona em mulheres
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  VERDADE: Homens ganham os mesmos benefícios. Colágeno melhora
+                  pele, cabelo, articulações e unhas independente de gênero.
+                  Homens maduros têm queda de colágeno MAIOR que mulheres.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="x-circle"
+                    style="width: 24px; height: 24px; color: #ef4444"
+                  ></i>
+                  <h4 class="font-heading font-bold">
+                    MITO: Caldo de osso é suficiente
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  VERDADE: Caldo de osso tem colágeno, mas quantidade é baixa
+                  (5-10g por litro) e absorção é ruim. Suplemento de peptídeos
+                  hidrolisados oferece 10-15g altamente biodisponível.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="check-circle"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      color: #10b981;
+                      flex-shrink: 0;
+                    "
+                  ></i>
+                  <h4 class="font-heading font-bold">
+                    VERDADE: Combina com Vitamina C
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  Vitamina C é COFATOR para síntese de colágeno. Tomar colágeno
+                  + Vitamina C aumenta efetividade em 30-50%. O melhor combo
+                  possível.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="check-circle"
+                    style="
+                      width: 24px;
+                      height: 24px;
+                      color: #10b981;
+                      flex-shrink: 0;
+                    "
+                  ></i>
+                  <h4 class="font-heading font-bold">
+                    VERDADE: Começa a agir em 2-4 semanas
+                  </h4>
+                </div>
+                <p class="text-gray-400">
+                  Colágeno se acumula nos tecidos. Você sente pele mais
+                  hidratada em 2 semanas, vê rugas diminuir em 8-12 semanas,
+                  máximo efeito em 24 semanas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="w-full py-20 bg-surface border-t border-gray-800">
+          <div class="max-w-6xl mx-auto px-6">
+            <h2
+              class="font-heading text-4xl md:text-5xl font-bold text-center mb-16"
+            >
+              COMPLETE SUA ROTINA
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-pink-500/50 transition-all cursor-pointer"
+                onclick="navigateTo('magnesio')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m7wd3qoriokx00.webp"
+                  alt="Tri Magnésio"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Tri Magnésio + Inositol Relax
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Relaxamento total e melhor absorção de nutrientes
+                </p>
+                <span class="text-pink-400 font-bold">Ver Produto →</span>
+              </div>
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-pink-500/50 transition-all cursor-pointer"
+                onclick="navigateTo('whey')"
+              >
+                <img
+                  src="https://http2.mlstatic.com/D_NQ_NP_2X_976179-MLB71247198041_082023-F-combo-whey-protein-fusion-1800g-pre-treino-300g-copo.webp"
+                  alt="Kit Whey Fusion"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Kit Whey Protein Isolado Fusion
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Proteína e regeneração de forma completa
+                </p>
+                <span class="text-pink-400 font-bold">Ver Produto →</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- PÁGINA: TRI MAGNÉSIO -->
+      <div id="magnesio" class="product-page">
+        <section
+          class="relative w-full min-h-[600px] flex items-center overflow-hidden"
+          style="
+            background: radial-gradient(
+              ellipse at center,
+              #001a0a 0%,
+              #000 70%
+            );
+          "
+        >
           <div
-            class="flex flex-wrap justify-center gap-6 text-gray-400 text-sm"
+            class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full"
           >
-            <span class="flex items-center gap-2"
-              ><i data-lucide="truck" class="w-4 h-4 text-brand"></i> Envio
-              Rápido</span
-            >
-            <span class="flex items-center gap-2"
-              ><i data-lucide="shield-check" class="w-4 h-4 text-brand"></i>
-              Compra Segura</span
-            >
-            <span class="flex items-center gap-2"
-              ><i data-lucide="refresh-cw" class="w-4 h-4 text-brand"></i>
-              Satisfação Garantida</span
-            >
+            <div class="fade-up">
+              <span
+                class="inline-block bg-green-500/20 border border-green-500/40 text-green-400 text-sm font-semibold px-4 py-1 rounded-full mb-6 uppercase tracking-wider"
+                >Recuperação &amp; Sono</span
+              >
+              <h1
+                class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+              >
+                TRI MAGNÉSIO <span class="text-green-400">RELAX PREMIUM</span>
+              </h1>
+              <p class="text-gray-300 text-lg md:text-xl mb-4 max-w-lg">
+                Dimalato + Quelato + Taurato + Inositol
+              </p>
+              <p class="text-gray-400 text-base mb-8">
+                Recuperação muscular profunda, sono reparador e redução do
+                stress. Máxima absorção com zero incômodo digestivo.
+              </p>
+              <div class="flex flex-wrap gap-4 items-center">
+                <a
+                  href="https://s.shopee.com.br/1gFOPQTwgW"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-green-500 hover:bg-green-600 text-white font-heading font-bold text-lg px-8 py-4 rounded-lg transition-all glow hover:scale-105 inline-block"
+                  >COMPRAR AGORA</a
+                >
+                <span class="text-gray-400 text-sm"
+                  >Consulte o preço nos marketplaces</span
+                >
+              </div>
+            </div>
+            <div class="flex justify-center fade-up fade-up-delay-1">
+              <img
+                src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m7wd3qoriokx00.webp"
+                alt="Tri Magnésio"
+                class="max-w-full h-auto max-h-[500px] object-contain float drop-shadow-2xl"
+                loading="lazy"
+                onerror="
+                  this.style.background =
+                    'linear-gradient(135deg,#1a1a1a,#333)';
+                  this.style.borderRadius = '16px';
+                  this.style.minHeight = '300px';
+                "
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <!-- SEÇÃO 1: O QUE É E POR QUE TOMAR -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-green-400">
+              TRI MAGNÉSIO: RECUPERAÇÃO E SONO PROFUNDO
+            </h2>
+            <p class="text-gray-300 text-lg mb-6">
+              Magnésio é o 4º mineral mais abundante do corpo. Participa de +300
+              reações bioquímicas. Estresse, exercício e dieta pobre causam
+              deficiência em 60-80% da população. O Tri Magnésio combina 3
+              formas diferentes de magnésio + Inositol para máxima absorção e
+              efeito sinérgico.
+            </p>
+            <div
+              class="bg-surface rounded-lg p-6 border border-green-500/30 mt-8"
+            >
+              <h3 class="font-heading text-2xl font-bold text-green-400 mb-4">
+                Por que Tri Magnésio funciona melhor?
+              </h3>
+              <ul class="space-y-3 text-gray-300">
+                <li>
+                  ✓ <strong>Dimalato:</strong> Energético, reduz fadiga muscular
+                </li>
+                <li>
+                  ✓ <strong>Quelato:</strong> Máxima absorção intestinal
+                  (chelated)
+                </li>
+                <li>✓ <strong>Taurato:</strong> Suporta saúde cardíaca</li>
+                <li>
+                  ✓ <strong>Inositol:</strong> Melhora sono, reduz ansiedade
+                </li>
+              </ul>
+              <p class="text-gray-400 mt-4">
+                Resultado: Recuperação muscular profunda, sono reparador,
+                redução de câimbras e stress.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 2: 3 FORMAS DE MAGNÉSIO EXPLICADAS -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              ENTENDENDO AS 3 FORMAS DE MAGNÉSIO
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-card rounded-lg p-6 border-l-4 border-green-400">
+                <h3 class="font-heading text-xl font-bold mb-3">
+                  <i
+                    data-lucide="battery"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      color: #10b981;
+                      display: inline;
+                      margin-right: 8px;
+                    "
+                  ></i
+                  >MAGNÉSIO DIMALATO
+                </h3>
+                <p class="text-gray-300">
+                  Forma que contém ácido málico (carboxi-energético). Beneficia
+                  recuperação muscular, reduz fadiga e dor pós-treino. Ideal
+                  para atletas.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Melhor para: Recuperação pós-treino, redução de DOMS (dor
+                  muscular tardia)
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-green-400">
+                <h3 class="font-heading text-xl font-bold mb-3">
+                  <i
+                    data-lucide="target"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      color: #10b981;
+                      display: inline;
+                      margin-right: 8px;
+                    "
+                  ></i
+                  >MAGNÉSIO QUELATO
+                </h3>
+                <p class="text-gray-300">
+                  Ligado a aminoácidos. Absorção 4x superior ao óxido de
+                  magnésio comum. Máxima biodisponibilidade = máximo efeito com
+                  dose menor.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Melhor para: Pessoas com sensibilidade digestiva ou absorção
+                  fraca
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-green-400">
+                <h3 class="font-heading text-xl font-bold mb-3">
+                  <i
+                    data-lucide="heart"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      color: #10b981;
+                      display: inline;
+                      margin-right: 8px;
+                    "
+                  ></i
+                  >MAGNÉSIO TAURATO
+                </h3>
+                <p class="text-gray-300">
+                  Magnésio ligado a taurina. Específico para saúde cardíaca.
+                  Melhora ritmo cardíaco, pressão arterial e função
+                  cardiovascular.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Melhor para: Suporte cardiovascular, pessoas com histórico de
+                  hipertensão
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-green-400">
+                <h3 class="font-heading text-xl font-bold mb-3">
+                  <i
+                    data-lucide="moon"
+                    style="
+                      width: 20px;
+                      height: 20px;
+                      color: #10b981;
+                      display: inline;
+                      margin-right: 8px;
+                    "
+                  ></i
+                  >INOSITOL
+                </h3>
+                <p class="text-gray-300">
+                  Pseudo-vitamina que suporta neurotransmissores. Reduz
+                  ansiedade, melhora qualidade do sono REM, equilibra humor.
+                  Sinergia perfeita com magnésio.
+                </p>
+                <p class="text-gray-400 text-sm mt-2">
+                  Melhor para: Redução de ansiedade, melhora de sono profundo
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 3: FUNÇÕES CHAVE NO CORPO -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-green-400">
+              COMO MAGNÉSIO TRANSFORMA SEU CORPO
+            </h2>
+            <p class="text-gray-300 text-lg mb-8">
+              Magnésio participa em processos críticos:
+            </p>
+            <div class="space-y-4">
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="droplet"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #10b981;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Relaxamento Muscular</h4>
+                  <p class="text-gray-300">
+                    Magnésio regula contração muscular. Deficiência = câimbras
+                    noturnos. Suplementação = relaxamento profundo, zero
+                    câimbras.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="moon"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #10b981;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Sono Profundo</h4>
+                  <p class="text-gray-300">
+                    Ativa melatonina, reduz cortisol. Resultado: dormir 30min
+                    mais cedo, qualidade REM melhor, acordar descansado.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="brain"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #10b981;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Redução de Stress</h4>
+                  <p class="text-gray-300">
+                    Bloqueia cortisol, modula GABA (calma cerebral). Diminui
+                    ansiedade, nervosismo e agitação mental.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="heart"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #10b981;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Saúde do Coração</h4>
+                  <p class="text-gray-300">
+                    Regula batidas cardíacas, pressão arterial. Magnésio taurato
+                    é específico para proteção cardiovascular.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="zap"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #10b981;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Recuperação Pós-Treino</h4>
+                  <p class="text-gray-300">
+                    Reduz DOMS, acelera síntese proteica, diminui inflamação.
+                    Treino pesado no dia = magnésio à noite.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 bg-surface rounded-lg p-4">
+                <i
+                  data-lucide="repeat-2"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    color: #10b981;
+                    flex-shrink: 0;
+                  "
+                ></i>
+                <div>
+                  <h4 class="font-bold mb-1">Absorção de Outros Nutrientes</h4>
+                  <p class="text-gray-300">
+                    Magnésio melhora absorção de cálcio, proteína, carboidratos.
+                    Otimiza resultado de TUDO que você toma.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 4: PROTOCOLO E DOSAGEM -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              PROTOCOLO IDEAL: QUANDO E COMO TOMAR
+            </h2>
+            <div class="space-y-6">
+              <div class="bg-card rounded-lg p-6 border-l-4 border-green-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="clock"
+                    style="width: 24px; height: 24px; color: #10b981"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold mb-3">
+                    MELHOR HORÁRIO
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  <strong>30-60 minutos antes de dormir</strong>. Seu efeito
+                  pico coincide com hora de deitar = máximo relaxamento e sono
+                  profundo.
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-green-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="beaker"
+                    style="width: 24px; height: 24px; color: #10b981"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold mb-3">
+                    DOSAGEM RECOMENDADA
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  <strong>300-400mg de magnésio</strong> por dia (conforme
+                  rótulo da embalagem).
+                </p>
+                <p class="text-gray-300 mt-2">
+                  Pode ser em dose única à noite ou dividido (manhã + noite).
+                </p>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-green-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="cup"
+                    style="width: 24px; height: 24px; color: #10b981"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold mb-3">
+                    COMO CONSUMIR
+                  </h3>
+                </div>
+                <ul class="space-y-2 text-gray-300 mt-2">
+                  <li>
+                    • Misture em 200ml de água morna (morna absorve melhor)
+                  </li>
+                  <li>• Ou misture em chá morno (camomila, passionária)</li>
+                  <li>• Evite café/chá preto à noite (cafeína)</li>
+                  <li>• Pode tomar com leite desnatado</li>
+                </ul>
+              </div>
+              <div class="bg-card rounded-lg p-6 border-l-4 border-green-400">
+                <div class="flex gap-3 mb-3">
+                  <i
+                    data-lucide="droplet"
+                    style="width: 24px; height: 24px; color: #10b981"
+                  ></i>
+                  <h3 class="font-heading text-lg font-bold mb-3">
+                    HIDRATAÇÃO
+                  </h3>
+                </div>
+                <p class="text-gray-300">
+                  Beba bastante água durante o dia. Magnésio trabalha melhor com
+                  hidratação adequada (3-4L/dia).
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 5: RESULTADOS E TIMELINE -->
+        <section class="w-full py-20 bg-card">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-green-400">
+              QUANDO VOCÊ VAI SENTIR A DIFERENÇA
+            </h2>
+            <div class="bg-surface rounded-lg p-8 border border-green-500/30">
+              <div class="space-y-6">
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-green-400 min-w-fit"
+                    >Noite 1</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">Primeiro efeito</h4>
+                    <p class="text-gray-300">
+                      Você pode sentir relaxamento mais cedo. Alguns dormem
+                      15-30min antes.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-green-400 min-w-fit"
+                    >Semana 1</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">
+                      Sono mais profundo
+                    </h4>
+                    <p class="text-gray-300">
+                      Noites inteiras sem acordar. Qualidade REM melhor = sonhos
+                      mais vívidos.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-green-400 min-w-fit"
+                    >Semana 2</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">
+                      Recuperação notável
+                    </h4>
+                    <p class="text-gray-300">
+                      Dor muscular após treino diminui. Você acorda menos
+                      cansado.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-green-400 min-w-fit"
+                    >Semana 3-4</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">
+                      Redução de stress
+                    </h4>
+                    <p class="text-gray-300">
+                      Sente-se mais calmo durante o dia. Ansiedade reduzida.
+                      Humor melhorado.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <span class="text-3xl font-bold text-green-400 min-w-fit"
+                    >Mês 2+</span
+                  >
+                  <div>
+                    <h4 class="font-heading font-bold mb-1">
+                      Transformação completa
+                    </h4>
+                    <p class="text-gray-300">
+                      Sem câimbras, dorme cedo, acorda descansado, stress
+                      controlado, treinos recuperam 40% mais rápido.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- SEÇÃO 6: COMBOS E CUIDADOS -->
+        <section class="w-full py-20 bg-surface">
+          <div class="max-w-4xl mx-auto px-6">
+            <h2 class="font-heading text-4xl font-bold mb-8">
+              COMBOS INTELIGENTES E PRECAUÇÕES
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-card rounded-lg p-6 border border-green-500/30">
+                <h3 class="font-heading text-lg font-bold text-green-400 mb-4">
+                  ✅ COMBOS PERFEITOS
+                </h3>
+                <ul class="space-y-3 text-gray-300 text-sm">
+                  <li>
+                    <i
+                      data-lucide="zap"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    ><strong>Magnésio + Colágeno (noite):</strong> Recuperação
+                    celular profunda enquanto dorme
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="zap"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    ><strong>Magnésio + Creatina:</strong> Creatina pela manhã,
+                    magnésio à noite para recuperação
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="zap"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    ><strong>Magnésio + Vitamina D:</strong> Magnésio melhora
+                    absorção de D3
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="zap"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #10b981;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    ><strong>Magnésio + Melatonina:</strong> Dueto de sono
+                    profundo
+                  </li>
+                </ul>
+              </div>
+              <div class="bg-card rounded-lg p-6 border border-green-500/30">
+                <h3 class="font-heading text-lg font-bold text-green-400 mb-4">
+                  ⚠️ INTERAÇÕES A EVITAR
+                </h3>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                  <li>
+                    <i
+                      data-lucide="x"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ef4444;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Não misture com cálcio suplementar (competem por absorção)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="x"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ef4444;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Evite com antibióticos (separe 2-3h)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="x"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ef4444;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Não use com laxantes (magnésio já solta intestino)
+                  </li>
+                  <li>
+                    <i
+                      data-lucide="x"
+                      style="
+                        width: 16px;
+                        height: 16px;
+                        color: #ef4444;
+                        display: inline;
+                        margin-right: 8px;
+                      "
+                    ></i
+                    >Cuidado em insuficiência renal (consulte médico)
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="mt-6 bg-card rounded-lg p-6 border-l-4 border-green-400"
+            >
+              <div class="flex gap-3">
+                <i
+                  data-lucide="lightbulb"
+                  style="width: 24px; height: 24px; color: #10b981"
+                ></i>
+                <p class="text-gray-300">
+                  <strong>Dica Pro:</strong> Use por 8-12 semanas contínuo,
+                  depois descanse 1 semana. Seu corpo adora ciclos!
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="w-full py-20 bg-surface border-t border-gray-800">
+          <div class="max-w-6xl mx-auto px-6">
+            <h2
+              class="font-heading text-4xl md:text-5xl font-bold text-center mb-16"
+            >
+              SEU STACK DE RECUPERAÇÃO
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-green-500/50 transition-all cursor-pointer"
+                onclick="navigateTo('creatina')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-820l7-mnzolhuki4n4c0@resize_w450_nl.webp"
+                  alt="Creatina Soldiers"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Creatina Soldiers Nutrition
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Força + Recuperação = Resultados Reais
+                </p>
+                <span class="text-green-400 font-bold">Ver Produto →</span>
+              </div>
+              <div
+                class="bg-card rounded-xl p-6 border border-gray-800 hover:border-green-500/50 transition-all cursor-pointer"
+                onclick="navigateTo('colageno')"
+              >
+                <img
+                  src="https://down-br.img.susercontent.com/file/br-11134207-820l9-mnn6mcqcoo3lc6@resize_w450_nl.webp"
+                  alt="Colágeno"
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 class="font-heading text-xl font-semibold mb-2">
+                  Colágeno Verisol Premium
+                </h3>
+                <p class="text-gray-400 text-sm mb-4">
+                  Regeneração celular enquanto dorme
+                </p>
+                <span class="text-green-400 font-bold">Ver Produto →</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
       <!-- FOOTER -->
       <footer class="w-full py-8 bg-card border-t border-gray-800">
         <div class="max-w-6xl mx-auto px-6 text-center text-gray-500 text-sm">
           <p>
-            Este produto não substitui uma alimentação equilibrada. Consulte um
-            profissional de saúde.
+            Estes produtos não substituem uma alimentação equilibrada. Consulte
+            um profissional de saúde.
           </p>
           <p class="mt-2">
-            © 2024 — Página de vendas. Todos os direitos reservados.
+            © 2024 — <span id="footer-domain">www.seunomefitness.com.br</span>.
+            Todos os direitos reservados.
           </p>
         </div>
       </footer>
@@ -825,125 +3458,38 @@
     <script>
       lucide.createIcons();
 
+      function navigateTo(page) {
+        const pages = document.querySelectorAll(".product-page");
+        pages.forEach((p) => p.classList.remove("active"));
+        const targetPage = document.getElementById(page);
+        if (targetPage) targetPage.classList.add("active");
+        window.scrollTo(0, 0);
+      }
+
       const defaultConfig = {
-        hero_title:
-          'KIT WHEY PROTEIN <span class="text-brand">ISOLADO FUSION</span>',
-        cta_text: "COMPRAR AGORA",
-        background_color: "#000000",
-        surface_color: "#1A1A1A",
-        text_color: "#FFFFFF",
-        primary_action: "#E11D24",
-        secondary_action: "#EAB308",
-        font_family: "Oswald",
-        font_size: 16,
+        site_domain: "www.seunomefitness.com.br",
+        company_name: "Fusion Store",
       };
 
       window.elementSdk.init({
         defaultConfig,
         onConfigChange: async (config) => {
-          const title = document.getElementById("hero-title");
-          const ctaBtn = document.getElementById("cta-btn");
+          const domain = config.site_domain || defaultConfig.site_domain;
+          const company = config.company_name || defaultConfig.company_name;
 
-          if (title)
-            title.innerHTML = config.hero_title || defaultConfig.hero_title;
-          if (ctaBtn)
-            ctaBtn.textContent = config.cta_text || defaultConfig.cta_text;
-
-          const primaryColor =
-            config.primary_action || defaultConfig.primary_action;
-          const bgColor =
-            config.background_color || defaultConfig.background_color;
-          const surfaceColor =
-            config.surface_color || defaultConfig.surface_color;
-          const textColor = config.text_color || defaultConfig.text_color;
-          const secondaryAction =
-            config.secondary_action || defaultConfig.secondary_action;
-
-          document.body.style.backgroundColor = bgColor;
-          document.body.style.color = textColor;
-          document
-            .querySelectorAll(".bg-surface")
-            .forEach((el) => (el.style.backgroundColor = surfaceColor));
-          document
-            .querySelectorAll(".bg-card")
-            .forEach((el) => (el.style.backgroundColor = surfaceColor));
-          document
-            .querySelectorAll(".bg-brand, .bg-brand\\/10")
-            .forEach((el) => {
-              if (el.classList.contains("bg-brand"))
-                el.style.backgroundColor = primaryColor;
-            });
-          document
-            .querySelectorAll(".text-brand")
-            .forEach((el) => (el.style.color = primaryColor));
-
-          const font = config.font_family || defaultConfig.font_family;
-          const baseSize = config.font_size || defaultConfig.font_size;
-          document
-            .querySelectorAll(".font-heading")
-            .forEach((el) => (el.style.fontFamily = `${font}, sans-serif`));
-          document.body.style.fontSize = `${baseSize}px`;
+          document.getElementById("header-brand").textContent = company;
+          document.getElementById("footer-domain").textContent = domain;
         },
         mapToCapabilities: (config) => ({
-          recolorables: [
-            {
-              get: () =>
-                config.background_color || defaultConfig.background_color,
-              set: (v) => {
-                config.background_color = v;
-                window.elementSdk.setConfig({ background_color: v });
-              },
-            },
-            {
-              get: () => config.surface_color || defaultConfig.surface_color,
-              set: (v) => {
-                config.surface_color = v;
-                window.elementSdk.setConfig({ surface_color: v });
-              },
-            },
-            {
-              get: () => config.text_color || defaultConfig.text_color,
-              set: (v) => {
-                config.text_color = v;
-                window.elementSdk.setConfig({ text_color: v });
-              },
-            },
-            {
-              get: () => config.primary_action || defaultConfig.primary_action,
-              set: (v) => {
-                config.primary_action = v;
-                window.elementSdk.setConfig({ primary_action: v });
-              },
-            },
-            {
-              get: () =>
-                config.secondary_action || defaultConfig.secondary_action,
-              set: (v) => {
-                config.secondary_action = v;
-                window.elementSdk.setConfig({ secondary_action: v });
-              },
-            },
-          ],
+          recolorables: [],
           borderables: [],
-          fontEditable: {
-            get: () => config.font_family || defaultConfig.font_family,
-            set: (v) => {
-              config.font_family = v;
-              window.elementSdk.setConfig({ font_family: v });
-            },
-          },
-          fontSizeable: {
-            get: () => config.font_size || defaultConfig.font_size,
-            set: (v) => {
-              config.font_size = v;
-              window.elementSdk.setConfig({ font_size: v });
-            },
-          },
+          fontEditable: undefined,
+          fontSizeable: undefined,
         }),
         mapToEditPanelValues: (config) =>
           new Map([
-            ["hero_title", config.hero_title || defaultConfig.hero_title],
-            ["cta_text", config.cta_text || defaultConfig.cta_text],
+            ["site_domain", config.site_domain || defaultConfig.site_domain],
+            ["company_name", config.company_name || defaultConfig.company_name],
           ]),
       });
     </script>
@@ -954,7 +3500,7 @@
           if (b) {
             var d = b.createElement("script");
             d.innerHTML =
-              "window.__CF$cv$params={r:'9f8b7ccad0e9490c',t:'MTc3ODI3NTAwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+              "window.__CF$cv$params={r:'9fd577697680e2aa',t:'MTc3OTA1MDczMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
             b.getElementsByTagName("head")[0].appendChild(d);
           }
         }
