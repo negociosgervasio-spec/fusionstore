@@ -91,6 +91,16 @@
         box-sizing: border-box;
       }
     </style>
+
+    <style>
+      @media (max-width: 425px) {
+        #nav-menu {
+          display: flex;
+          flex-direction: column !important;
+          gap: 1rem;
+        }
+      }
+    </style>
     <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   </head>
   <body class="h-full bg-black text-white font-body overflow-auto">
@@ -121,7 +131,7 @@
                 navigateTo('creatina');
                 toggleMenu();
               "
-              class="text-sm hover:text-brand transition-colors py-2 md:py-0"
+              class="text-sm hover:text-brand transition-colors text-left md:text-center py-2 md:py-0"
             >
               Creatina
             </button>
@@ -130,16 +140,17 @@
                 navigateTo('whey');
                 toggleMenu();
               "
-              class="text-sm hover:text-brand transition-colors py-2 md:py-0"
+              class="text-sm hover:text-brand transition-colors text-left md:text-center py-2 md:py-0"
             >
               Whey Fusion
             </button>
+
             <button
               onclick="
                 navigateTo('panic');
                 toggleMenu();
               "
-              class="text-sm hover:text-brand transition-colors py-2 md:py-0"
+              class="text-sm hover:text-brand transition-colors text-left md:text-center py-2 md:py-0"
             >
               Panic Pre
             </button>
@@ -148,7 +159,7 @@
                 navigateTo('colageno');
                 toggleMenu();
               "
-              class="text-sm hover:text-brand transition-colors py-2 md:py-0"
+              class="text-sm hover:text-brand transition-colors text-left md:text-center py-2 md:py-0"
             >
               Colágeno
             </button>
@@ -157,7 +168,7 @@
                 navigateTo('magnesio');
                 toggleMenu();
               "
-              class="text-sm hover:text-brand transition-colors py-2 md:py-0"
+              class="text-sm hover:text-brand transition-colors text-left md:text-center py-2 md:py-0"
             >
               Magnésio
             </button>
@@ -3480,6 +3491,7 @@
         </div>
       </footer>
     </div>
+
     <script>
       lucide.createIcons();
 
@@ -3502,8 +3514,8 @@
       });
 
       const defaultConfig = {
-        site_domain: "www.seunomefitness.com.br",
-        company_name: "Fusion Store",
+        site_domain: "https://fusionfitstore.vercel.app/",
+        company_name: "Fusion Fittore",
       };
 
       window.elementSdk.init({
@@ -3527,8 +3539,7 @@
             ["company_name", config.company_name || defaultConfig.company_name],
           ]),
       });
-    </script>
-    <script>
+
       (function () {
         function c() {
           var b = a.contentDocument || a.contentWindow.document;
